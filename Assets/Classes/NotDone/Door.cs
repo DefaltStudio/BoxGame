@@ -3,8 +3,6 @@ using System.Collections;
 
 public class Door : MonoBehaviour {
 
-    
-
     public Transform endPosition;
     private Transform startPosition;
 
@@ -19,10 +17,10 @@ public class Door : MonoBehaviour {
 
     void Update()
     {
-
+        transform.position = Vector3.MoveTowards(transform.position, endPosition.position, moveSpeed * Time.deltaTime);
     }
 
-    // transform.position = Vector3.MoveTowards(transform.position, patrolPoints[currentPoint].position, moveSpeed * Time.deltaTime);
+    // 
 
     static void ChangeDoorState(bool doorStateOpen)
     {
