@@ -6,10 +6,7 @@ public class Patrol : MonoBehaviour {
     public List<Transform> patrolPoints = new List<Transform>();
     public float moveSpeed;
     private int currentPoint;
-
-
-
-
+    
     void Start()
     {
 
@@ -20,12 +17,8 @@ public class Patrol : MonoBehaviour {
     void Update()
     {
         if (transform.position == patrolPoints[currentPoint].position) 
-        { 
             currentPoint++;
-            //Debug.Log("Current position: " +  currentPoint.ToString());
-        }
             
-
         if (currentPoint >= patrolPoints.Count)
             currentPoint = 0;
 
