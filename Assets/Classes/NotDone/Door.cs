@@ -20,9 +20,8 @@ public class Door : MonoBehaviour {
         transform.position = Vector3.MoveTowards(transform.position, endPosition.position, moveSpeed * Time.deltaTime);
     }
 
-    // 
-
     static void ChangeDoorState(bool doorStateOpen)
     {
+
     }
 }

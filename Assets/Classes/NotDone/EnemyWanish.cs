@@ -15,7 +15,7 @@ public class EnemyWanish : MonoBehaviour
 
 	void OnCollisionEnter ()
 	{
-		Target.renderer.material.color = Color.green;	
+		Target.renderer.material.color = Color.green;
 	}
 
 	void OnCollisionExit()
