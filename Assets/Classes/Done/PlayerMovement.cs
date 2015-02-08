@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour {
     private static Vector3 spawnPosition;
 	public Transform cam;
 
-	public Transform playerTransform;
+	public GameObject playerTransform;
 
     void Start()
     {
@@ -88,15 +88,16 @@ public class PlayerMovement : MonoBehaviour {
     {
         audio.Play();                                                   // Eksplosion (Lyd)
         Instantiate(explosion, transform.position, transform.rotation); // Eksplotsion
-        Instantiate(playerTransform, spawnPosition, transform.rotation);// Ny Player
-        Destroy(gameObject);                                            // Fjern gammel Player
+        //Instantiate(playerTransform, spawnPosition, transform.rotation);// Ny Player
+        //Destroy(gameObject);                                            // Fjern gammel Player
 
 
          // MIDLERTIDIG LØSNING TIL RESPAWN-PROBLEM
         //Application.LoadLevel(Application.loadedLevel);
         // MIDLERTIDIG LØSNING TIL RESPAWN-PROBLEM
 
-		//rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
-
+		rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+		rigidbody.velocity = new Vector3 (0, -.1f, 0);
+		transform.position = spawnPosition;
 	}
 }

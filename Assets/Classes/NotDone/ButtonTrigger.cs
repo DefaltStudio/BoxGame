@@ -11,6 +11,11 @@ public class ButtonTrigger : MonoBehaviour {
     public Transform doorEndPosition;
     private bool doorOpen = false;
 
+	void Start () 
+	{
+		doorStartPosition = transform;
+	}
+
     void Update()
     {
 
