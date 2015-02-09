@@ -11,15 +11,10 @@ public class ButtonTrigger : MonoBehaviour {
     public Transform doorEndPosition;
     private bool doorOpen = false;
 
-	void Start () 
+	void Awake () 
 	{
 		doorStartPosition = transform;
 	}
-
-    void Update()
-    {
-
-    }
 
     void OnTriggerEnter(Collider col)
     {
