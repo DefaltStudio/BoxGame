@@ -1,5 +1,4 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
 public class PlayerMovement : MonoBehaviour {
@@ -23,7 +22,6 @@ public class PlayerMovement : MonoBehaviour {
 
     void Update() 
 	{
-        // Move direction
 	    Vector3 cameraRelativeForward = cam.TransformDirection(Vector3.forward);
 	    Vector3 cameraRelativeRight = cam.TransformDirection(Vector3.right);
 	    Vector3 cameraRelativeLeft = cam.TransformDirection(Vector3.left);
@@ -65,37 +63,23 @@ public class PlayerMovement : MonoBehaviour {
     
 
         if(Input.GetButtonDown("Reset"))
-        {
             Die();
-        }
     }
 
 	void OnCollisionEnter(Collision hit)
 
     {
         if(hit.transform.tag == "Enemy")
-		{
             Die();
-		}
 
         if(hit.transform.tag == "Ground" || hit.transform.tag == "Wall")
-        {
             rigidbody.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
-        }
     }
 
  	 void Die()
     {
         audio.Play();                                                   // Eksplosion (Lyd)
-        Instantiate(explosion, transform.position, transform.rotation); // Eksplotsion
-        //Instantiate(playerTransform, spawnPosition, transform.rotation);// Ny Player
-        //Destroy(gameObject);                                            // Fjern gammel Player
-
-
-         // MIDLERTIDIG LØSNING TIL RESPAWN-PROBLEM
-        //Application.LoadLevel(Application.loadedLevel);
-        // MIDLERTIDIG LØSNING TIL RESPAWN-PROBLEM
-
+        Instantiate(explosion, transform.position, transform.rotation); // Eksplosion (Emitter)
 		rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 		rigidbody.velocity = new Vector3 (0, -.1f, 0);
 		transform.position = spawnPosition;
