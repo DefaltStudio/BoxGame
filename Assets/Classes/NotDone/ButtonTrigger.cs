@@ -29,7 +29,7 @@ public class ButtonTrigger : MonoBehaviour {
 						trigger.transform.position = Vector3.MoveTowards(trigger.transform.position, doorEndPosition.position, doorMoveSpeed * Time.deltaTime);
 					}
 					doorOpen = false;
-                }
+                }	
                 else if (!doorOpen)
                 {
 					while (transform != doorEndPosition)
