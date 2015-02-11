@@ -18,7 +18,7 @@ public class ButtonTrigger : MonoBehaviour {
 
     void Update()
     {
-        trigger.transform.position = Vector3.MoveTowards(trigger.transform.position, doorEndPosition.position, doorMoveSpeed * Time.deltaTime);
+        //trigger.transform.position = Vector3.MoveTowards(trigger.transform.position, doorEndPosition.position, doorMoveSpeed * Time.deltaTime);
     }
 
     void OnTriggerEnter(Collider col)
