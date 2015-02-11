@@ -13,8 +13,13 @@ public class ButtonTrigger : MonoBehaviour {
 
 	void Awake () 
 	{
-		doorStartPosition = transform;
+		doorStartPosition.position = transform.position;
 	}
+
+    void Update()
+    {
+        trigger.transform.position = Vector3.MoveTowards(trigger.transform.position, doorEndPosition.position, doorMoveSpeed * Time.deltaTime);
+    }
 
     void OnTriggerEnter(Collider col)
     {
@@ -22,20 +27,20 @@ public class ButtonTrigger : MonoBehaviour {
         {
             if (trigger.transform.tag == "Door")
             {
-                if (doorOpen)
+                if (!doorOpen)
                 {
-					while(transform != doorStartPosition)
-					{
-						trigger.transform.position = Vector3.MoveTowards(trigger.transform.position, doorEndPosition.position, doorMoveSpeed * Time.deltaTime);
-					}
+                    while (transform.position != doorEndPosition.position)
+                    {
+                        trigger.transform.position = Vector3.MoveTowards(trigger.transform.position, doorEndPosition.position, doorMoveSpeed * Time.deltaTime);
+                    }
 					doorOpen = false;
                 }	
-                else if (!doorOpen)
+                else if (doorOpen)
                 {
-					while (transform != doorEndPosition)
-					{
-						trigger.transform.position = Vector3.MoveTowards(trigger.transform.position, doorStartPosition.position, doorMoveSpeed * Time.deltaTime);
-					}
+                    while (transform.position != doorStartPosition.position)
+                    {
+                        trigger.transform.position = Vector3.MoveTowards(trigger.transform.position, doorStartPosition.position, doorMoveSpeed * Time.deltaTime);
+                    }
 					doorOpen = true;
                 }
             }
