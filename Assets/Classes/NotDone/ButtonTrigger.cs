@@ -1,24 +1,30 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ButtonTrigger : MonoBehaviour {
+public class ButtonTrigger : MonoBehaviour
+{
 
     public static bool isTriggered = false;
-    public GameObject trigger;
+    public Transform trigger;
 
     public float doorMoveSpeed;
-    private Transform doorStartPosition;
+    private Vector3 doorStartPosition;
     public Transform doorEndPosition;
     private bool doorOpen = false;
 
-	void Awake () 
-	{
-		doorStartPosition.position = transform.position;
-	}
+    void Awake()
+    {
+        doorStartPosition = trigger.transform.position;
+    }
 
     void Update()
     {
-        //trigger.transform.position = Vector3.MoveTowards(trigger.transform.position, doorEndPosition.position, doorMoveSpeed * Time.deltaTime);
+        //trigger.transform.position = Vector3.MoveTowards(trigger.transform.position, doorEndPosition.transform.position, doorMoveSpeed * Time.deltaTime);
+    }
+
+    IEnumerator wait(float duration)
+    {
+        yield return new WaitForSeconds(duration);
     }
 
     void OnTriggerEnter(Collider col)
@@ -29,19 +35,22 @@ public class ButtonTrigger : MonoBehaviour {
             {
                 if (!doorOpen)
                 {
-                    while (transform.position != doorEndPosition.position)
+                    while (trigger.transform.position != doorEndPosition.transform.position)
                     {
-                        trigger.transform.position = Vector3.MoveTowards(trigger.transform.position, doorEndPosition.position, doorMoveSpeed * Time.deltaTime);
+                        trigger.transform.position = Vector3.MoveTowards(trigger.transform.position, doorEndPosition.transform.position, doorMoveSpeed);
+                        wait(1);
                     }
-					doorOpen = false;
-                }	
+                    doorOpen = true;
+                    Debug.Log(doorOpen);
+                }
                 else if (doorOpen)
                 {
-                    while (transform.position != doorStartPosition.position)
+                    while (trigger.transform.position != doorStartPosition)
                     {
-                        trigger.transform.position = Vector3.MoveTowards(trigger.transform.position, doorStartPosition.position, doorMoveSpeed * Time.deltaTime);
+                        trigger.transform.position = Vector3.MoveTowards(trigger.transform.position, doorStartPosition, doorMoveSpeed);
                     }
-					doorOpen = true;
+                    doorOpen = false;
+                    Debug.Log(doorOpen);
                 }
             }
         }

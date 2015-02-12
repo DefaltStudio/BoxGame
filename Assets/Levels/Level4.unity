@@ -648,7 +648,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 116862711}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2, y: .5, z: 0}
+  m_LocalPosition: {x: -.980000019, y: .5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5690,7 +5690,7 @@ BoxCollider:
     type: 2}
   m_PrefabInternal: {fileID: 2075744320}
   m_GameObject: {fileID: 983474281}
-  m_Material: {fileID: 13400000, guid: 2c71cfb1b60823a4bb6bf27b92d37fae, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -6654,8 +6654,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43d10674d1e907d4e99e1effed0772c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trigger: {fileID: 1527894895}
-  doorMoveSpeed: 5
+  trigger: {fileID: 1527894899}
+  doorMoveSpeed: 1
   doorEndPosition: {fileID: 116862712}
 --- !u!23 &1113855977
 Renderer:
