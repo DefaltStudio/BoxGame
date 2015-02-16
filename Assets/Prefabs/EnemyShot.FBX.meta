@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: da33e84a7de8a1b45a7af78c98282ea6
+guid: ff26fb8686d485a418eb637b251b1548
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
@@ -55,6 +55,16 @@ ModelImporter:
     4300014: Object006
     4300016: Object007
     4300018: Object008
+    6400000: Cylinder001
+    6400002: GeoSphere001
+    6400004: Object001
+    6400006: Object002
+    6400008: Object003
+    6400010: Object004
+    6400012: Object005
+    6400014: Object006
+    6400016: Object007
+    6400018: Object008
     7400000: Take 001
     9500000: //RootNode
   materials:
@@ -78,7 +88,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: .0500000007
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
