@@ -2,14 +2,17 @@
 using System.Collections;
 
 public class PlayerMovement : MonoBehaviour {
-    public float moveSpeed;
+	public float moveSpeed;
     public float maxSpeed = 5f;
-   
+	static public float BoostAmount;
+
 	public GameObject explosion;
     private static Vector3 spawnPosition;
 	public Transform cam;
 
 	public GameObject playerTransform;
+
+
 
     void Start()
     {
@@ -17,11 +20,16 @@ public class PlayerMovement : MonoBehaviour {
         Screen.showCursor = false;
         rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 		CameraTurn.player = this.gameObject;
+			
+
+
+
     }
 
 
     void Update() 
 	{
+
 	    Vector3 cameraRelativeForward = cam.TransformDirection(Vector3.forward);
 	    Vector3 cameraRelativeRight = cam.TransformDirection(Vector3.right);
 	    Vector3 cameraRelativeLeft = cam.TransformDirection(Vector3.left);
@@ -74,7 +82,12 @@ public class PlayerMovement : MonoBehaviour {
 
         if(hit.transform.tag == "Ground" || hit.transform.tag == "Wall")
             rigidbody.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
-    }
+   
+		if (hit.transform.tag == "PlusBoost") 
+		{
+			moveSpeed += BoostAmount;
+		}
+	}
 
  	 void Die()
     {

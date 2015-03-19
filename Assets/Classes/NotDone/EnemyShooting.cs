@@ -11,7 +11,7 @@ public class EnemyShooting : MonoBehaviour
 
 	void Update () 
 	{
-		if (Enemyshoot.Open = true) 
+		if (Enemyshoot.Open == true) 
 		{
 			Shoot();
 		}
