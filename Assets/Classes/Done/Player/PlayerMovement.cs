@@ -2,9 +2,10 @@
 using System.Collections;
 
 public class PlayerMovement : MonoBehaviour {
-    public float moveSpeed;
+	public float moveSpeed;
     public float maxSpeed = 5f;
-   
+	static public float BoostAmount;
+
 	public GameObject explosion;
     private static Vector3 spawnPosition;
 	public Transform cam;
@@ -14,11 +15,10 @@ public class PlayerMovement : MonoBehaviour {
     void Start()
     {
 		spawnPosition = transform.position;   
-        Cursor.visible = false;
+        //Cursor.visible = false;
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 		CameraTurn.player = this.gameObject;
     }
-
 
     void Update() 
 	{
@@ -45,8 +45,6 @@ public class PlayerMovement : MonoBehaviour {
                 GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + cameraRelativeBack * moveSpeed * Time.deltaTime);
         }
      
-
-     
         if (Input.GetButtonDown("TurnLeft"))
         {
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
@@ -67,18 +65,20 @@ public class PlayerMovement : MonoBehaviour {
     }
 
 	void OnCollisionEnter(Collision hit)
-
     {
         if(hit.transform.tag == "Enemy")
             Die();
 
         if(hit.transform.tag == "Ground" || hit.transform.tag == "Wall")
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
-    }
+   
+		if (hit.transform.tag == "PlusBoost") 
+			moveSpeed += BoostAmount;
+	}
 
  	 void Die()
     {
-        GetComponent<AudioSource>().Play();                                                   // Eksplosion (Lyd)
+        GetComponent<AudioSource>().Play();                             // Eksplosion (Lyd)
         Instantiate(explosion, transform.position, transform.rotation); // Eksplosion (Emitter)
 		GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 		GetComponent<Rigidbody>().velocity = new Vector3 (0, -.1f, 0);
