@@ -17,8 +17,8 @@ public class PlayerMovement : MonoBehaviour {
     void Start()
     {
 		spawnPosition = transform.position;   
-        Screen.showCursor = false;
-        rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+        Cursor.visible = false;
+        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 		CameraTurn.player = this.gameObject;
 			
 
@@ -44,29 +44,29 @@ public class PlayerMovement : MonoBehaviour {
         if (distanceToGround < .51)
 		{
             if(Input.GetButton("Forward"))
-                rigidbody.MovePosition(rigidbody.position + cameraRelativeForward * moveSpeed * Time.deltaTime);
+                GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + cameraRelativeForward * moveSpeed * Time.deltaTime);
             if(Input.GetButton("Left"))
-                rigidbody.MovePosition(rigidbody.position + cameraRelativeLeft * moveSpeed * Time.deltaTime);
+                GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + cameraRelativeLeft * moveSpeed * Time.deltaTime);
             if(Input.GetButton("Right"))
-                rigidbody.MovePosition(rigidbody.position + cameraRelativeRight * moveSpeed * Time.deltaTime);
+                GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + cameraRelativeRight * moveSpeed * Time.deltaTime);
             if(Input.GetButton("Reverse"))
-                rigidbody.MovePosition(rigidbody.position + cameraRelativeBack * moveSpeed * Time.deltaTime);
+                GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + cameraRelativeBack * moveSpeed * Time.deltaTime);
         }
      
 
      
         if (Input.GetButtonDown("TurnLeft"))
         {
-            rigidbody.constraints = RigidbodyConstraints.None;
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             transform.Rotate(0, 90f, 0);
-            rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
         }
 
         if (Input.GetButtonDown("TurnRight"))
         {
-            rigidbody.constraints = RigidbodyConstraints.None;
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             transform.Rotate(0, -90f, 0);
-            rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
         }
     
 
@@ -81,7 +81,7 @@ public class PlayerMovement : MonoBehaviour {
             Die();
 
         if(hit.transform.tag == "Ground" || hit.transform.tag == "Wall")
-            rigidbody.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
    
 		if (hit.transform.tag == "PlusBoost") 
 		{
@@ -91,10 +91,10 @@ public class PlayerMovement : MonoBehaviour {
 
  	 void Die()
     {
-        audio.Play();                                                   // Eksplosion (Lyd)
+        GetComponent<AudioSource>().Play();                                                   // Eksplosion (Lyd)
         Instantiate(explosion, transform.position, transform.rotation); // Eksplosion (Emitter)
-		rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
-		rigidbody.velocity = new Vector3 (0, -.1f, 0);
+		GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+		GetComponent<Rigidbody>().velocity = new Vector3 (0, -.1f, 0);
 		transform.position = spawnPosition;
 	}
 }

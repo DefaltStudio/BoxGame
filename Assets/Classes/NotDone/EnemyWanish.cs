@@ -10,17 +10,17 @@ public class EnemyWanish : MonoBehaviour
 
 	void Start () 
 	{
-		StartColor = Target.renderer.material.color;
+		StartColor = Target.GetComponent<Renderer>().material.color;
 	}
 
 	void OnCollisionEnter ()
 	{
-		Target.renderer.material.color = Color.green;
+		Target.GetComponent<Renderer>().material.color = Color.green;
 	}
 
 	void OnCollisionExit()
 	{
-		Target.renderer.material.color = StartColor;
+		Target.GetComponent<Renderer>().material.color = StartColor;
 	}
 }
 		    
