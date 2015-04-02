@@ -9,13 +9,13 @@ public class MaterialChanger : MonoBehaviour {
 
     void Start()
     {
-        renderer.material = defaultMaterial;
+        GetComponent<Renderer>().material = defaultMaterial;
     }
 
     void Update()
     {
         float lerp = Mathf.PingPong(Time.time, fadeDuration) / fadeDuration;
-        renderer.material.Lerp(defaultMaterial, transparentMaterial, lerp);
+        GetComponent<Renderer>().material.Lerp(defaultMaterial, transparentMaterial, lerp);
     }
     
 }

@@ -20,7 +20,7 @@ public class CameraTurn : MonoBehaviour {
 
             player.transform.Rotate(90, 0, 0, Space.Self);
 
-            if (!animation.isPlaying)
+            if (!GetComponent<Animation>().isPlaying)
             {
                 if (camLocation == 0)
                     playForward("CameraLeft1");
@@ -36,7 +36,7 @@ public class CameraTurn : MonoBehaviour {
         {
             player.transform.Rotate(-90, 0, 0, Space.Self);
 
-            if (!animation.isPlaying)
+            if (!GetComponent<Animation>().isPlaying)
             {
                 if (camLocation == 1)
                     playReverse("CameraLeft1");
@@ -52,8 +52,8 @@ public class CameraTurn : MonoBehaviour {
 
     void playForward(string Animation)
     {
-        animation[Animation].speed = 2.0f;
-        animation.Play(Animation);
+        GetComponent<Animation>()[Animation].speed = 2.0f;
+        GetComponent<Animation>().Play(Animation);
         camLocation++;
         if (camLocation == 4)
             camLocation = 0;
@@ -61,9 +61,9 @@ public class CameraTurn : MonoBehaviour {
 
     void playReverse(string Animation)
     {
-        animation[Animation].speed = -2.0f;
-        animation[Animation].time = animation[Animation].length;
-        animation.Play(Animation);
+        GetComponent<Animation>()[Animation].speed = -2.0f;
+        GetComponent<Animation>()[Animation].time = GetComponent<Animation>()[Animation].length;
+        GetComponent<Animation>().Play(Animation);
         camLocation--;
         if (camLocation == -1)
             camLocation = 3;

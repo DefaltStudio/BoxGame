@@ -10,11 +10,11 @@ public class MusicPlayer : MonoBehaviour {
     }
 
     void Update() {
-        currentMusicTime = audio.time;
+        currentMusicTime = GetComponent<AudioSource>().time;
     }
 
     void OnLevelWasLoaded(int lvl)
     {
-        audio.time = currentMusicTime;
+        GetComponent<AudioSource>().time = currentMusicTime;
     }
 }
