@@ -40,9 +40,9 @@ public class PlayerMovement : MonoBehaviour {
         {
             if (Input.GetButton("Forward"))
                 GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + cameraRelativeForward * moveSpeed * Time.deltaTime);
-            if (Input.GetButtonDown("Horizontal") && Input.GetAxisRaw("Horizontal") > 0)
+            if (Input.GetButton("Horizontal") && Input.GetAxisRaw("Horizontal") > 0)
                 GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + cameraRelativeLeft * moveSpeed * Time.deltaTime);
-            if (Input.GetButtonDown("Horizontal") && Input.GetAxisRaw("Horizontal") < 0)
+            if (Input.GetButton("Horizontal") && Input.GetAxisRaw("Horizontal") < 0)
                 GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + cameraRelativeRight * moveSpeed * Time.deltaTime);
             if (Input.GetButton("Reverse"))
                 GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + cameraRelativeBack * moveSpeed * Time.deltaTime);
@@ -83,7 +83,7 @@ public class PlayerMovement : MonoBehaviour {
 
  	void Die()
     {
-        GetComponent<AudioSource>().Play();                                                   // Eksplosion (Lyd)
+        GetComponent<AudioSource>().Play();                             // Eksplosion (Lyd)
         Instantiate(explosion, transform.position, transform.rotation); // Eksplosion (Emitter)
 		GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 		GetComponent<Rigidbody>().velocity = new Vector3 (0, -.1f, 0);
