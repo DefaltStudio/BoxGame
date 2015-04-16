@@ -3,23 +3,42 @@ using System.Collections;
 
 public class DestroySpeedBoost : MonoBehaviour {
 
-	public float Boostamount = 5.0f;
+	public float boostAmount = 5.0f;
+    public int boostSeconds = 5;
 
-	// Use this for initialization
-	void Start () 
-	{
-		PlayerMovement.BoostAmount = Boostamount;
-	}
-	
-	// Update is called once per frame
-	void Update () 
-	{
-	
-	}
+    static private int boostTimeLeft = 0;
+    static private System.Timers.Timer aTimer = new System.Timers.Timer();
+
+    void Awake()
+    {
+        aTimer.Interval = boostSeconds * 1000;
+    }
+
+    //void Start () 
+    //{
+    //    PlayerMovement.BoostAmount = boostAmount;
+    //}
+
+    void Update ()
+    {
+        if (boostTimeLeft != 0)
+            PlayerMovement.BoostAmount = boostAmount;
+        else
+            PlayerMovement.BoostAmount = 0;
+    }
 
 	void OnCollisionEnter(Collision hit)
-
 	{
 		Destroy (gameObject);
 	}
+
+    private static void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
+    {
+        if (boostTimeLeft > 0)
+            boostTimeLeft--;
+        else
+            aTimer.Enabled = false;
+
+        Debug.Log("Tick!");
+    }
 }
