@@ -14,8 +14,8 @@ public class PlayerMovement : MonoBehaviour {
 	public GameObject playerTransform;
 
     private Vector3 moveDirection;
-    public static int boostTimeSeconds;
-    private static int boostTimeLeft = 0;
+    public static float boostTimeSeconds;
+    private static float boostTimeLeft = 0;
 
     void Start()
     {
@@ -67,6 +67,12 @@ public class PlayerMovement : MonoBehaviour {
 
         if(Input.GetButtonDown("Reset"))
             Die();
+
+        #region boostTimeSeconds
+
+        boostTimeLeft -= Time.deltaTime;
+
+        #endregion
     }
 
 	void OnCollisionEnter(Collision hit)
