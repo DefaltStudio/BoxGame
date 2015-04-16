@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Timers;
 
 public class PlayerMovement : MonoBehaviour {
 	public float moveSpeed;
     public float maxSpeed = 5f;
-	static public float BoostAmount;
+	static public float boostAmount;
 
 	public GameObject explosion;
     private static Vector3 spawnPosition;
@@ -13,6 +14,8 @@ public class PlayerMovement : MonoBehaviour {
 	public GameObject playerTransform;
 
     private Vector3 moveDirection;
+    public static int boostTimeSeconds;
+    private static int boostTimeLeft = 0;
 
     void Start()
     {
@@ -67,7 +70,6 @@ public class PlayerMovement : MonoBehaviour {
     }
 
 	void OnCollisionEnter(Collision hit)
-
     {
         if(hit.transform.tag == "Enemy")
             Die();
@@ -77,7 +79,9 @@ public class PlayerMovement : MonoBehaviour {
    
 		if (hit.transform.tag == "PlusBoost") 
 		{
-			moveSpeed += BoostAmount;
+            if (boostTimeLeft > 0)
+                moveSpeed += boostAmount;
+            //moveSpeed += boostAmount;
 		}
 	}
 

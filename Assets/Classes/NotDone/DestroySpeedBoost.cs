@@ -4,28 +4,29 @@ using System.Collections;
 public class DestroySpeedBoost : MonoBehaviour {
 
 	public float boostAmount = 5.0f;
-    public int boostSeconds = 5;
+    public float boostTimeSeconds = 5;
 
-    static private int boostTimeLeft = 0;
+    static private float boostTimeLeft = 0;
     static private System.Timers.Timer aTimer = new System.Timers.Timer();
 
     void Awake()
     {
-        aTimer.Interval = boostSeconds * 1000;
+        //aTimer.Interval = boostSeconds * 1000;
+        PlayerMovement.boostTimeSeconds = boostTimeSeconds;
     }
 
-    //void Start () 
-    //{
-    //    PlayerMovement.BoostAmount = boostAmount;
-    //}
-
-    void Update ()
+    void Start()
     {
-        if (boostTimeLeft != 0)
-            PlayerMovement.BoostAmount = boostAmount;
-        else
-            PlayerMovement.BoostAmount = 0;
+        PlayerMovement.boostAmount = boostAmount;
     }
+
+    //void Update ()
+    //{
+    //    if (boostTimeLeft != 0)
+    //        PlayerMovement.BoostAmount = boostAmount;
+    //    else
+    //        PlayerMovement.BoostAmount = 0;
+    //}
 
 	void OnCollisionEnter(Collision hit)
 	{
@@ -38,7 +39,5 @@ public class DestroySpeedBoost : MonoBehaviour {
             boostTimeLeft--;
         else
             aTimer.Enabled = false;
-
-        Debug.Log("Tick!");
     }
 }
