@@ -4,6 +4,7 @@ using System.Timers;
 
 public class PlayerMovement : MonoBehaviour {
 	public float moveSpeed;
+    private float initialMoveSpeed;
     public float maxSpeed = 5f;
 	static public float boostAmount;
 
@@ -24,6 +25,7 @@ public class PlayerMovement : MonoBehaviour {
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 		CameraTurn.player = this.gameObject;
         moveDirection = Vector3.zero;
+        initialMoveSpeed = moveSpeed;
     }
 
     void Update() 
@@ -71,6 +73,8 @@ public class PlayerMovement : MonoBehaviour {
         #region boostTimeSeconds
 
         boostTimeLeft -= Time.deltaTime;
+        if (boostTimeLeft <= 0)
+            moveSpeed = initialMoveSpeed;
 
         #endregion
     }
@@ -85,9 +89,8 @@ public class PlayerMovement : MonoBehaviour {
    
 		if (hit.transform.tag == "PlusBoost") 
 		{
-            if (boostTimeLeft > 0)
-                moveSpeed += boostAmount;
-            //moveSpeed += boostAmount;
+            moveSpeed += boostAmount;
+            boostTimeLeft = boostTimeSeconds;
 		}
 	}
 

@@ -11,7 +11,6 @@ public class DestroySpeedBoost : MonoBehaviour {
 
     void Awake()
     {
-        //aTimer.Interval = boostSeconds * 1000;
         PlayerMovement.boostTimeSeconds = boostTimeSeconds;
     }
 
@@ -19,14 +18,6 @@ public class DestroySpeedBoost : MonoBehaviour {
     {
         PlayerMovement.boostAmount = boostAmount;
     }
-
-    //void Update ()
-    //{
-    //    if (boostTimeLeft != 0)
-    //        PlayerMovement.BoostAmount = boostAmount;
-    //    else
-    //        PlayerMovement.BoostAmount = 0;
-    //}
 
 	void OnCollisionEnter(Collision hit)
 	{
