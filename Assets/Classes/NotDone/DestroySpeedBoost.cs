@@ -9,6 +9,8 @@ public class DestroySpeedBoost : MonoBehaviour {
     static private float boostTimeLeft = 0;
     static private System.Timers.Timer aTimer = new System.Timers.Timer();
 
+    public GameObject SoundPlayer;
+
     void Awake()
     {
         PlayerMovement.boostTimeSeconds = boostTimeSeconds;
@@ -21,6 +23,7 @@ public class DestroySpeedBoost : MonoBehaviour {
 
 	void OnCollisionEnter(Collision hit)
 	{
+        SoundPlayer.GetComponent<AudioSource>().Play();
 		Destroy (gameObject);
 	}
 
