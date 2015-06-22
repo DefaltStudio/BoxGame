@@ -194,7 +194,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boostAmount: 5
   boostTimeSeconds: 5
-  SoundPlayer: {fileID: 157670, guid: 70c3143f4254dea4fbc1a074a4038fc5, type: 2}
+  SoundPlayer: {fileID: 140216, guid: db2f3ff02e4c66c488417ce67df11594, type: 2}
 --- !u!114 &11453690
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -208,7 +208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boostAmount: 5
   boostTimeSeconds: 5
-  SoundPlayer: {fileID: 0}
+  SoundPlayer: {fileID: 140216, guid: db2f3ff02e4c66c488417ce67df11594, type: 2}
 --- !u!114 &11480198
 MonoBehaviour:
   m_ObjectHideFlags: 1
