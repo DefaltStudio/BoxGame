@@ -29,7 +29,7 @@ public class DestroySpeedBoost : MonoBehaviour {
 
 	void OnCollisionEnter(Collision hit)
     {
-        SoundPlayer.GetComponent<AudioSource>().Play();
+        Instantiate(SoundPlayer, transform.position, Quaternion.identity);
         Manager.speedBoostStartLocations.Add(boostStartPos);
         Destroy(gameObject);
 	}
