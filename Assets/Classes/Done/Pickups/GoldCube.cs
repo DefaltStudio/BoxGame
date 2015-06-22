@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GoldCube : MonoBehaviour {
-
+public class GoldCube : MonoBehaviour 
+{
+	public GameObject GoldExplosion;
     void Start()
     {
         Manager.goldCubes.Add(gameObject);
@@ -14,6 +15,7 @@ public class GoldCube : MonoBehaviour {
         {
             Debug.Log("Gold cube collected!");
             Manager.goldCubes.Remove(gameObject);
+			Instantiate(GoldExplosion, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }
