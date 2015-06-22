@@ -10,6 +10,11 @@ public class DestroySpeedBoost : MonoBehaviour {
     static private System.Timers.Timer aTimer = new System.Timers.Timer();
 
     public GameObject SoundPlayer;
+    private static Vector3 boostStartPos;
+
+    // NYT PROBLEM!!!
+    // Når den bliver instantiated igen, så er den ikke attacted til soundplayer.
+    // Find ny måde at spille lyden på.
 
     void Awake()
     {
@@ -19,12 +24,14 @@ public class DestroySpeedBoost : MonoBehaviour {
     void Start()
     {
         PlayerMovement.boostAmount = boostAmount;
+        boostStartPos = transform.position;
     }
 
 	void OnCollisionEnter(Collision hit)
-	{
+    {
         SoundPlayer.GetComponent<AudioSource>().Play();
-		Destroy (gameObject);
+        Manager.speedBoostStartLocations.Add(boostStartPos);
+        Destroy(gameObject);
 	}
 
     private static void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)

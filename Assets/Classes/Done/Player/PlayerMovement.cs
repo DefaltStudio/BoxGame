@@ -1,6 +1,7 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
 using System.Timers;
+using UnityEngine;
+using System.Collections.Generic;
 
 public class PlayerMovement : MonoBehaviour {
 	public float moveSpeed;
@@ -12,11 +13,19 @@ public class PlayerMovement : MonoBehaviour {
     private static Vector3 spawnPosition;
 	public Transform cam;
 
-	public GameObject playerTransform;
+    public GameObject playerTransform;
 
     private Vector3 moveDirection;
     public static float boostTimeSeconds;
     private static float boostTimeLeft = 0;
+
+    public GameObject goldCube;
+    public GameObject speedBoost;
+
+    void Awake()
+    {
+        EnemyShooting.FPC = transform;
+    }
 
     void Start()
     {
@@ -95,7 +104,7 @@ public class PlayerMovement : MonoBehaviour {
             Die();
 
         if(hit.transform.tag == "Ground" || hit.transform.tag == "Wall")
-            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
    
 		if (hit.transform.tag == "PlusBoost") 
 		{
@@ -111,5 +120,23 @@ public class PlayerMovement : MonoBehaviour {
 		GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 		GetComponent<Rigidbody>().velocity = new Vector3 (0, -.1f, 0);
 		transform.position = spawnPosition;
+
+        foreach (Vector3 speedBoostStartLocation in Manager.speedBoostStartLocations)
+        {
+            Debug.Log(speedBoostStartLocation.ToString());
+        }
+
+        foreach (Vector3 goldCubeStartLocation in Manager.goldCubeStartLocations)
+        {
+            Debug.Log(goldCubeStartLocation.ToString());
+
+            Instantiate(goldCube, goldCubeStartLocation, Quaternion.identity);
+        }
+        foreach (Vector3 speedBoostStartLocation in Manager.speedBoostStartLocations)
+        {
+            Instantiate(speedBoost, speedBoostStartLocation, Quaternion.identity);
+        }
+        Manager.goldCubeStartLocations.Clear();
+        Manager.speedBoostStartLocations.Clear();
 	}
 }

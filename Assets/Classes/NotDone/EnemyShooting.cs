@@ -3,7 +3,7 @@ using System.Collections;
 
 public class EnemyShooting : MonoBehaviour 
 {
-	public Transform FPC;
+	public static Transform FPC;
 	public Transform Spawn;
 	public Transform Bullet;
 	public float RotationSpeed;

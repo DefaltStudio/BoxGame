@@ -7,6 +7,8 @@ public class Manager : MonoBehaviour {
     public static int currentLevel = 0;
     private static int levelCount = 0;
     public static List<GameObject> goldCubes = new List<GameObject>();
+    public static List<Vector3> goldCubeStartLocations = new List<Vector3>();
+    public static List<Vector3> speedBoostStartLocations = new List<Vector3>();
 
     void Start()
     {

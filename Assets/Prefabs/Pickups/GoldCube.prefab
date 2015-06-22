@@ -70,7 +70,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 133842}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .5, z: 4}
+  m_LocalPosition: {x: -5.07000017, y: .800000012, z: -4.92999983}
   m_LocalScale: {x: .5, y: .5, z: .5}
   m_Children:
   - {fileID: 433844}
@@ -155,7 +155,7 @@ Light:
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -172,9 +172,9 @@ Animation:
   m_GameObject: {fileID: 133844}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: b0b1c91b3d518fb4c8cbed0be4bee3c3, type: 2}
+  m_Animation: {fileID: 7400000, guid: 55d881b275edff64eb7605c040a72cea, type: 2}
   m_Animations:
-  - {fileID: 7400000, guid: b0b1c91b3d518fb4c8cbed0be4bee3c3, type: 2}
+  - {fileID: 7400000, guid: 55d881b275edff64eb7605c040a72cea, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
