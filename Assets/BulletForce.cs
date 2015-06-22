@@ -3,14 +3,21 @@ using System.Collections;
 
 public class BulletForce : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () 
+    public GameObject explosion;
+
+    void Awake()
+    {
+        //explosion = GameObject.FindWithTag("Explosion1");
+    }
+
+	void Start() 
 	{
 		GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * 10000);
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
+	void OnCollisionEnter(Collision hit) 
+    {
+        Instantiate(explosion, transform.position, Quaternion.identity);
+        Destroy(gameObject);
 	}
 }
