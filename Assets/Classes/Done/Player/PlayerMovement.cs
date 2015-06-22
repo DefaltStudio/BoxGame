@@ -51,6 +51,16 @@ public class PlayerMovement : MonoBehaviour {
                 GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + cameraRelativeRight * moveSpeed * Time.deltaTime);
             if (Input.GetButton("Reverse"))
                 GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + cameraRelativeBack * moveSpeed * Time.deltaTime);
+
+            // Joystick test
+            if (Input.GetAxis("HorizontalJoystick") > 0)
+                GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + cameraRelativeLeft * moveSpeed * Time.deltaTime);
+            if (Input.GetAxis("HorizontalJoystick") < 0)
+                GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + cameraRelativeRight * moveSpeed * Time.deltaTime);
+            if (Input.GetAxis("Vertical") > 0)
+                GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + cameraRelativeForward * moveSpeed * Time.deltaTime);
+            if (Input.GetAxis("Vertical") < 0)
+                GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + cameraRelativeBack * moveSpeed * Time.deltaTime);
         }
 
         if (Input.GetButtonDown("TurnLeft"))
