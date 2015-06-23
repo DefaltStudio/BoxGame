@@ -12,10 +12,6 @@ public class DestroySpeedBoost : MonoBehaviour {
     public GameObject SoundPlayer;
     private static Vector3 boostStartPos;
 
-    // NYT PROBLEM!!!
-    // Når den bliver instantiated igen, så er den ikke attacted til soundplayer.
-    // Find ny måde at spille lyden på.
-
     void Awake()
     {
         PlayerMovement.boostTimeSeconds = boostTimeSeconds;
