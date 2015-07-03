@@ -11,7 +11,7 @@ public class EnemyShooting : MonoBehaviour
 	public float Temprotation = 0.0f;
 	public float fireRate = 0.5f;
 
-
+    private bool animHasPlayed = false;
 
 	private float nextFire = 0.0f;
 
@@ -35,18 +35,26 @@ public class EnemyShooting : MonoBehaviour
 		lookRotation = Quaternion.LookRotation (direction);
 
 		//kig på target hvis den er inden for range
+
+        GetComponentInParent<Animation>().wrapMode = WrapMode.Once;
 		if (DistanceToTarget < ActiveRange)
         {
-            GetComponentInParent<Animation>().wrapMode = WrapMode.Once;
-            GetComponentInParent<Animation>().Play();
-            if (!GetComponentInParent<Animation>().isPlaying)
+            if (!animHasPlayed)
             {
-                Shoot();
+                GetComponentInParent<Animation>().Play();
+                animHasPlayed = true;
             }
+            
+            if (!GetComponentInParent<Animation>().isPlaying)
+                Shoot();
 		}
-
-
-	
+	    
+        if (DistanceToTarget > ActiveRange)
+        {
+            if (animHasPlayed)
+                Debug.Log("Playing Backwards....");
+            animHasPlayed = false;
+        }
 	}
 
 	void Shoot ()
