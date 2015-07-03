@@ -5389,6 +5389,7 @@ GameObject:
   - 4: {fileID: 2060711584}
   - 114: {fileID: 2060711586}
   - 95: {fileID: 2060711585}
+  - 111: {fileID: 2060711587}
   m_Layer: 0
   m_Name: EnemyShot
   m_TagString: Untagged
@@ -5443,6 +5444,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81a946aacf9b94f4fbf636cb3e58ba65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!111 &2060711587
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2060711583}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 033ce2142e4f2194c99c73276db90d96, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 033ce2142e4f2194c99c73276db90d96, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1001 &2075744320
 Prefab:
   m_ObjectHideFlags: 0
