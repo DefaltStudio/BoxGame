@@ -3,17 +3,12 @@ using System.Collections;
 
 public class Animions : MonoBehaviour 
 {
-
-	Animator anim;
-
-	// Use this for initialization
-
 	void Start () 
 	{
 		//anim = GetComponent<Animator> ();
+        GetComponent<Animation>().Play();
 	}
 	
-	// Update is called once per frame
 	void Update () 
 	{
 
