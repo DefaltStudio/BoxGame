@@ -11,7 +11,7 @@ public class EnemyShooting : MonoBehaviour
 	public float Temprotation = 0.0f;
 	public float fireRate = 0.5f;
 
-	public static bool InRange = false;
+
 
 	private float nextFire = 0.0f;
 
@@ -43,7 +43,8 @@ public class EnemyShooting : MonoBehaviour
 		
 		if (DistanceToTarget < ActiveRange) 
 		{
-			InRange = true;
+			Animions.Animations();
+
 			Shoot();
 		}
 

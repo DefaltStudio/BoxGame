@@ -3,14 +3,24 @@ using System.Collections;
 
 public class Animions : MonoBehaviour 
 {
+
+	public bool Working = false;
+
 	void Start () 
 	{
-		//anim = GetComponent<Animator> ();
-        GetComponent<Animation>().Play();
+	
 	}
 	
 	void Update () 
 	{
+		if (Working == true) 
+		{
+			GetComponent<Animation> ().Play ();
+		}
+	}
 
+	public static void Animations()
+	{
+		Working = true;
 	}
 }
