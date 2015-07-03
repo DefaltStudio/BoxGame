@@ -11,6 +11,8 @@ public class EnemyShooting : MonoBehaviour
 	public float Temprotation = 0.0f;
 	public float fireRate = 0.5f;
 
+
+
     private bool animHasPlayed = false;
 
 	private float nextFire = 0.0f;
@@ -20,11 +22,14 @@ public class EnemyShooting : MonoBehaviour
 
 	void Start () 
 	{
-		
+
 	}
 
 	void Update ()
 	{
+	
+		Animation Test = GetComponentInParent<Animation> ();
+
 		//Find hvor langt FPC (First person Controller) er væk
 		float DistanceToTarget = Vector3.Distance(FPC.position, transform.position);
 
@@ -41,6 +46,7 @@ public class EnemyShooting : MonoBehaviour
         {
             if (!animHasPlayed)
             {
+				Test ["EnemyShootAnim"].speed = 1;
                 GetComponentInParent<Animation>().Play();
                 animHasPlayed = true;
             }
@@ -52,7 +58,12 @@ public class EnemyShooting : MonoBehaviour
         if (DistanceToTarget > ActiveRange)
         {
             if (animHasPlayed)
+
+				Test ["EnemyShootAnim"].speed = -1;
+
+				GetComponentInParent<Animation>().Play();
                 Debug.Log("Playing Backwards....");
+
             animHasPlayed = false;
         }
 	}
