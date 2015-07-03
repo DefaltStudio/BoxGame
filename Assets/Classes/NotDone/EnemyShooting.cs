@@ -43,7 +43,7 @@ public class EnemyShooting : MonoBehaviour
 		
 		if (DistanceToTarget < ActiveRange) 
 		{
-			Animions.Animations();
+			GetComponentInParent<Animation> ().Play ();
 
 			Shoot();
 		}
