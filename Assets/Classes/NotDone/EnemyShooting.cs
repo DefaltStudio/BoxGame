@@ -11,6 +11,8 @@ public class EnemyShooting : MonoBehaviour
 	public float Temprotation = 0.0f;
 	public float fireRate = 0.5f;
 
+	public static bool InRange = false;
+
 	private float nextFire = 0.0f;
 
 	private Vector3 direction;
@@ -21,7 +23,7 @@ public class EnemyShooting : MonoBehaviour
 		
 	}
 
-	void Update () 
+	void Update ()
 	{
 
 		
@@ -41,6 +43,7 @@ public class EnemyShooting : MonoBehaviour
 		
 		if (DistanceToTarget < ActiveRange) 
 		{
+			InRange = true;
 			Shoot();
 		}
 
