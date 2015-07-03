@@ -63,30 +63,30 @@ public class PlayerMovement : MonoBehaviour {
 
             // Joystick test
             if (Input.GetAxis("HorizontalJoystick") > 0)
-                GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + cameraRelativeLeft * moveSpeed * Time.deltaTime);
+                GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + cameraRelativeLeft * moveSpeed * Time.deltaTime * Input.GetAxis("HorizontalJoystick"));
             if (Input.GetAxis("HorizontalJoystick") < 0)
-                GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + cameraRelativeRight * moveSpeed * Time.deltaTime);
+                GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + cameraRelativeRight * moveSpeed * Time.deltaTime * -Input.GetAxis("HorizontalJoystick"));
             if (Input.GetAxis("Vertical") > 0)
-                GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + cameraRelativeForward * moveSpeed * Time.deltaTime);
+                GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + cameraRelativeForward * moveSpeed * Time.deltaTime * Input.GetAxis("Vertical"));
             if (Input.GetAxis("Vertical") < 0)
-                GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + cameraRelativeBack * moveSpeed * Time.deltaTime);
+                GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + cameraRelativeBack * moveSpeed * Time.deltaTime * -Input.GetAxis("Vertical"));
         }
 
-        if (Input.GetButtonDown("TurnLeft"))
+        if (Input.GetButtonDown("TurnLeft") || Input.GetButtonDown("ResetPlayer"))
         {
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             transform.Rotate(0, 90f, 0);
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
         }
 
-        if (Input.GetButtonDown("TurnRight"))
+        if (Input.GetButtonDown("TurnRight") || Input.GetButtonDown("CamTurnRight"))
         {
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             transform.Rotate(0, -90f, 0);
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
         }
 
-        if(Input.GetButtonDown("Reset"))
+        if(Input.GetButtonDown("Reset") || Input.GetButtonDown("ResetPlayer"))
             Die();
 
         #region boostTimeSeconds

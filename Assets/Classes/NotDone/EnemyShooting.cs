@@ -62,17 +62,7 @@ public class EnemyShooting : MonoBehaviour
 
 	void Shoot ()
 	{
-		Vector3 targetDir = FPC.position - transform.position;
-
-		float step = 1f * Time.deltaTime;
-
-		Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0F);
-
-		Debug.DrawRay(transform.position, newDir, Color.red);
-
-		transform.rotation = Quaternion.LookRotation(newDir);
-	
-        //transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * RotationSpeed);
+		transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * RotationSpeed);
 
 		if (Time.time > nextFire)
 		{
