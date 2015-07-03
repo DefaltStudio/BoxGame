@@ -18,11 +18,6 @@ public class EnemyShooting : MonoBehaviour
 	private Vector3 direction;
 	private Quaternion lookRotation;
 
-	void Start () 
-	{
-
-	}
-
 	void Update ()
 	{
 		Animation EnemyShotAnimationComp = GetComponentInParent<Animation> ();
@@ -67,8 +62,15 @@ public class EnemyShooting : MonoBehaviour
 
 	void Shoot ()
 	{
+        Vector3 vecToTarget = Vector3.Normalize(FPC.position - transform.position);
+        float angle = Mathf.Acos((float)Vector3.Dot(transform.position - FPC.position, vecToTarget));
+        
+        Vector3 axisToRotate = Vector3.Cross(transform.position, vecToTarget);
 
-		transform.rotation = Quaternion.Slerp (transform.rotation,lookRotation, Time.deltaTime * RotationSpeed);
+        transform.rotation *= Quaternion.Euler(axisToRotate);
+
+        //transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * RotationSpeed);
+        //transform.LookAt(FPC);
 		if (Time.time > nextFire)
 		{
 			nextFire = Time.time + fireRate;
