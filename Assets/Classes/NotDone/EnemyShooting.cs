@@ -25,13 +25,8 @@ public class EnemyShooting : MonoBehaviour
 
 	void Update ()
 	{
-
-		
-		//GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-
 		//Find hvor langt FPC (First person Controller) er væk
 		float DistanceToTarget = Vector3.Distance(FPC.position, transform.position);
-
 
 		//Find vejen den skal vende
 		direction = (FPC.position - transform.position).normalized;
@@ -40,12 +35,14 @@ public class EnemyShooting : MonoBehaviour
 		lookRotation = Quaternion.LookRotation (direction);
 
 		//kig på target hvis den er inden for range
-		
-		if (DistanceToTarget < ActiveRange) 
-		{
-			GetComponentInParent<Animation> ().Play ();
-
-			Shoot();
+		if (DistanceToTarget < ActiveRange)
+        {
+            GetComponentInParent<Animation>().wrapMode = WrapMode.Once;
+            GetComponentInParent<Animation>().Play();
+            if (!GetComponentInParent<Animation>().isPlaying)
+            {
+                Shoot();
+            }
 		}
 
 
