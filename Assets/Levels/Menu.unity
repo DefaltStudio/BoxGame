@@ -130,6 +130,10 @@ Prefab:
       propertyPath: m_Name
       value: GoldCube 4
       objectReference: {fileID: 0}
+    - target: {fileID: 11404354, guid: ab7682f6c8b096b4ab107d2084bd40e7, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ab7682f6c8b096b4ab107d2084bd40e7, type: 2}
   m_IsPrefabParent: 0
@@ -2898,7 +2902,7 @@ Transform:
   - {fileID: 51727110}
   - {fileID: 2106376849}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
 --- !u!1001 &825628797
 Prefab:
   m_ObjectHideFlags: 0
@@ -2936,6 +2940,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 478248, guid: ab7682f6c8b096b4ab107d2084bd40e7, type: 2}
       propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11404354, guid: ab7682f6c8b096b4ab107d2084bd40e7, type: 2}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4218,6 +4226,10 @@ Prefab:
       propertyPath: m_Name
       value: GoldCube 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11404354, guid: ab7682f6c8b096b4ab107d2084bd40e7, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ab7682f6c8b096b4ab107d2084bd40e7, type: 2}
   m_IsPrefabParent: 0
@@ -5316,7 +5328,7 @@ Transform:
   - {fileID: 1927952845}
   - {fileID: 311769842}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 9
 --- !u!1001 &1491634986
 Prefab:
   m_ObjectHideFlags: 0
@@ -5467,6 +5479,10 @@ Prefab:
     - target: {fileID: 135442, guid: ab7682f6c8b096b4ab107d2084bd40e7, type: 2}
       propertyPath: m_Name
       value: GoldCube 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11404354, guid: ab7682f6c8b096b4ab107d2084bd40e7, type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ab7682f6c8b096b4ab107d2084bd40e7, type: 2}
@@ -5732,7 +5748,7 @@ Transform:
   m_Children:
   - {fileID: 1059250207}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
 --- !u!4 &1596548852 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 561770eeba888c04f9e49fb130d7c130, type: 2}
@@ -6712,6 +6728,10 @@ Prefab:
     - target: {fileID: 135442, guid: ab7682f6c8b096b4ab107d2084bd40e7, type: 2}
       propertyPath: m_Name
       value: GoldCube 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11404354, guid: ab7682f6c8b096b4ab107d2084bd40e7, type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ab7682f6c8b096b4ab107d2084bd40e7, type: 2}
