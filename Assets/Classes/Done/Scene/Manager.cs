@@ -10,8 +10,10 @@ public class Manager : MonoBehaviour {
     public static List<Vector3> goldCubeStartLocations = new List<Vector3>();
     public static List<Vector3> speedBoostStartLocations = new List<Vector3>();
 
-    void Start()
+    void Update()
     {
+        if (Input.GetKeyDown(KeyCode.F13)) { DebugLoadLevel(Application.loadedLevel - 1); }
+        if (Input.GetKeyDown(KeyCode.F14)) { DebugLoadLevel(Application.loadedLevel + 1); }
     }
 
     void Awake()
@@ -24,12 +26,29 @@ public class Manager : MonoBehaviour {
     {
         if (goldCubes.Count == 0)
         {
+            Debug.Log("Clearing goldCubes, goldCubeStartLocations and speedBoostStartLocations lists");
+            goldCubes.Clear();
+            goldCubeStartLocations.Clear();
+            speedBoostStartLocations.Clear();
             Debug.Log("Load Level (" + level + ")");
-            Application.LoadLevel(level); 
+            Application.LoadLevel(level);
         }
         else
         {
             Debug.Log("Could not load level (" + level + "); collect all gold cubes first!");
+        }
+    }
+
+    private static void DebugLoadLevel(int level)
+    {
+        if (level > 0 && level < Application.levelCount)
+        {
+            Debug.Log("Clearing goldCubes, goldCubeStartLocations and speedBoostStartLocations lists");
+            goldCubes.Clear();
+            goldCubeStartLocations.Clear();
+            speedBoostStartLocations.Clear();
+            Debug.Log("Load Level (" + level + ")");
+            Application.LoadLevel(level);
         }
     }
 
@@ -38,7 +57,8 @@ public class Manager : MonoBehaviour {
         bool tmp = currentLevel < levelCount;
         Debug.Log("Level Up: " + tmp);
         if (currentLevel < levelCount)
-            LoadLevel(currentLevel + 1);
+                LoadLevel(currentLevel + 1);
+        
     }
 
     public static void LevelDown()

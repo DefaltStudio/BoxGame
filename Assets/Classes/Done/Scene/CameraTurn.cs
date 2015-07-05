@@ -15,7 +15,7 @@ public class CameraTurn : MonoBehaviour {
 	void Update () {
         
 		//Debug.Log (player.gameObject.name);
-        if (Input.GetButtonDown("TurnLeft"))
+        if (Input.GetButtonDown("TurnLeft") || Input.GetButtonDown("CamTurnLeft"))
         {
 
             player.transform.Rotate(90, 0, 0, Space.Self);
@@ -32,7 +32,7 @@ public class CameraTurn : MonoBehaviour {
                     playForward("CameraLeft4");
             }
         }
-        else if (Input.GetButton("TurnRight"))
+        else if (Input.GetButton("TurnRight") || Input.GetButtonDown("CamTurnRight"))
         {
             player.transform.Rotate(-90, 0, 0, Space.Self);
 
