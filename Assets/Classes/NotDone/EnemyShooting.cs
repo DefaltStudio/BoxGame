@@ -8,18 +8,24 @@ public class EnemyShooting : MonoBehaviour
 	public Transform Bullet;
 	public float RotationSpeed;
 	public float ActiveRange;
+
 	public float Temprotation = 0.0f;
 	public float fireRate = 0.5f;
 
+	public Transform Ball;
+
     private bool animHasPlayed = false;
+	public bool HasPlayed = false;
 
 	private float nextFire = 0.0f;
 
 	private Vector3 direction;
 	private Quaternion lookRotation;
 
+
 	void Update ()
-	{
+	{	
+
 		Animation EnemyShotAnimationComp = GetComponentInParent<Animation> ();
 
 		//Find hvor langt FPC (First person Controller) er væk
@@ -58,7 +64,15 @@ public class EnemyShooting : MonoBehaviour
 
             animHasPlayed = false;
         }
+
+		if (HasPlayed == false) 
+		{
+			Instantiate (Ball, new Vector3(transform.position.x, transform.position.y, transform.position.z - ActiveRange), Quaternion.identity);
+			HasPlayed = true;
+		}
+
 	}
+
 
 	void Shoot ()
 	{
@@ -81,6 +95,4 @@ public class EnemyShooting : MonoBehaviour
 		Gizmos.DrawWireSphere (transform.position, ActiveRange); 
 		
 	}
-
-
 }
