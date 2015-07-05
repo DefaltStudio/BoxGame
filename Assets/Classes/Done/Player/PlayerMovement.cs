@@ -115,6 +115,7 @@ public class PlayerMovement : MonoBehaviour {
 
  	void Die()
     {
+        moveSpeed = initialMoveSpeed;
         GetComponent<AudioSource>().Play();                             // Eksplosion (Lyd)
         Instantiate(explosion, transform.position, transform.rotation); // Eksplosion (Emitter)
 		GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
