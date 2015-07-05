@@ -74,7 +74,6 @@ public class PlayerMovement : MonoBehaviour {
 
         if (Input.GetButtonDown("TurnLeft") || Input.GetButtonDown("CamTurnLeft"))
         {
-            Debug.Log("Turn Left!");
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             transform.Rotate(0, 90f, 0);
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
@@ -82,7 +81,6 @@ public class PlayerMovement : MonoBehaviour {
 
         if (Input.GetButtonDown("TurnRight") || Input.GetButtonDown("CamTurnRight"))
         {
-            Debug.Log("Turn Right!");
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             transform.Rotate(0, -90f, 0);
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
