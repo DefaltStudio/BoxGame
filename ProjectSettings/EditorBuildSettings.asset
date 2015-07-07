@@ -22,8 +22,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Levels/t_Level1.unity
   - enabled: 1
-    path: Assets/Levels/t_Level2_linus.unity
-  - enabled: 1
     path: Assets/Levels/t_level3.unity
   - enabled: 1
     path: Assets/Levels/EndMessage.unity
