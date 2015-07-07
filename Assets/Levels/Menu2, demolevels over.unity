@@ -2060,9 +2060,12 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "<color=white>You have now completed the first learning levels. \nNow you're
-    ready for the real challenge\n\nPress </color><color=lightblue>SPACE</color> <color=white>to
-    continue!</color>"
+  m_Text: '<color=white>You have now completed the first learning levels
+
+    Now you''re ready for the real challenge
+
+
+    Press </color><color=lightblue>SPACE</color> <color=white>to continue!</color>'
 --- !u!222 &532164068
 CanvasRenderer:
   m_ObjectHideFlags: 0
