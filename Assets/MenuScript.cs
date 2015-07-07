@@ -15,8 +15,6 @@ public class MenuScript : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            //if (Application.isEditor)
-            //    UnityEditor.EditorApplication.isPlaying = false;
             if (!Application.isEditor)
                 System.Diagnostics.Process.GetCurrentProcess().Kill();
         }
