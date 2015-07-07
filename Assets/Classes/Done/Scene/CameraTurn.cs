@@ -12,40 +12,65 @@ public class CameraTurn : MonoBehaviour {
         camLocation = 0;
     }
 
-	void Update () {
+	void Update () 
+	{
         
 		//Debug.Log (player.gameObject.name);
-        if (Input.GetButtonDown("TurnLeft") || Input.GetButtonDown("CamTurnLeft"))
-        {
+		if (Input.GetButtonDown ("TurnLeft") || Input.GetButtonDown ("CamTurnLeft")) {
 
-            player.transform.Rotate(90, 0, 0, Space.Self);
+           
 
-            if (!GetComponent<Animation>().isPlaying)
-            {
-                if (camLocation == 0)
-                    playForward("CameraLeft1");
-                else if (camLocation == 1)
-                    playForward("CameraLeft2"); 
-                else if (camLocation == 2)
-                    playForward("CameraLeft3");
-                else if (camLocation == 3)
-                    playForward("CameraLeft4");
-            }
-        }
+			if (!GetComponent<Animation> ().isPlaying) 
+			{
+				if (camLocation == 0) 
+				{
+					playForward ("CameraLeft1");
+					player.transform.Rotate (0, 90, 0);
+				} 
+				else if (camLocation == 1) 
+				{
+					playForward ("CameraLeft2"); 
+					player.transform.Rotate (0, 90, 0);
+				} 
+
+				else if (camLocation == 2) 
+				{
+					playForward ("CameraLeft3");
+					player.transform.Rotate (0, 90, 0);
+				} 
+
+				else if (camLocation == 3) 
+				{
+					playForward ("CameraLeft4");
+					player.transform.Rotate (0, 90, 0);
+				}
+			}
+		}
+	
         else if (Input.GetButton("TurnRight") || Input.GetButtonDown("CamTurnRight"))
         {
-            player.transform.Rotate(-90, 0, 0, Space.Self);
-
             if (!GetComponent<Animation>().isPlaying)
             {
                 if (camLocation == 1)
+				{
                     playReverse("CameraLeft1");
+					player.transform.Rotate(0, -90, 0);
+				}
                 else if (camLocation == 2)
+				{
                     playReverse("CameraLeft2");
+					player.transform.Rotate(0, -90, 0);
+				}
                 else if (camLocation == 3)
+				{
                     playReverse("CameraLeft3");
+					player.transform.Rotate(0, -90, 0);
+				}
                 else if (camLocation == 0)
-                    playReverse("CameraLeft4");
+				{
+					playReverse("CameraLeft4");
+					player.transform.Rotate(0, -90, 0);
+				}
             }
         }
 	}

@@ -72,20 +72,6 @@ public class PlayerMovement : MonoBehaviour {
                 GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + cameraRelativeBack * moveSpeed * Time.deltaTime * -Input.GetAxis("Vertical"));
         }
 
-        if (Input.GetButtonDown("TurnLeft") || Input.GetButtonDown("CamTurnLeft"))
-        {
-            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-            transform.Rotate(0, 90f, 0);
-            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
-        }
-
-        if (Input.GetButtonDown("TurnRight") || Input.GetButtonDown("CamTurnRight"))
-        {
-            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-            transform.Rotate(0, -90f, 0);
-            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
-        }
-
         if (Input.GetButtonDown("Reset") || Input.GetButtonDown("ResetPlayer"))
             Die();
 
