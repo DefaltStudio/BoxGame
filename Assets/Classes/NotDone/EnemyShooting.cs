@@ -68,6 +68,9 @@ public class EnemyShooting : MonoBehaviour
 		if (HasPlayed == false) 
 		{
 			Instantiate (Ball, new Vector3(transform.position.x, transform.position.y, transform.position.z - ActiveRange), Quaternion.identity);
+			Instantiate (Ball, new Vector3(transform.position.x, transform.position.y, transform.position.z + ActiveRange), Quaternion.identity);
+			Instantiate (Ball, new Vector3(transform.position.x + ActiveRange, transform.position.y, transform.position.z), Quaternion.identity);
+			Instantiate (Ball, new Vector3(transform.position.x - ActiveRange, transform.position.y, transform.position.z), Quaternion.identity);
 			HasPlayed = true;
 		}
 
