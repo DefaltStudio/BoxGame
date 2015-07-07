@@ -1421,7 +1421,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
 --- !u!1001 &613156958
 Prefab:
   m_ObjectHideFlags: 0
@@ -3518,16 +3518,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 11400098, guid: ded46182c2c150a428949a7dc681e383, type: 2}
-      propertyPath: SoundPlayer
-      value: 
-      objectReference: {fileID: 140216, guid: db2f3ff02e4c66c488417ce67df11594, type: 2}
-    - target: {fileID: 11453690, guid: ded46182c2c150a428949a7dc681e383, type: 2}
-      propertyPath: SoundPlayer
-      value: 
-      objectReference: {fileID: 140216, guid: db2f3ff02e4c66c488417ce67df11594, type: 2}
-    m_RemovedComponents:
-    - {fileID: 11480198, guid: ded46182c2c150a428949a7dc681e383, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ded46182c2c150a428949a7dc681e383, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1303912573

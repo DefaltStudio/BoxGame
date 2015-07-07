@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
+[RequireComponent(typeof(GameObject))]
 public class Manager : MonoBehaviour {
 
     public static int currentLevel = 0;
@@ -9,11 +10,13 @@ public class Manager : MonoBehaviour {
     public static List<GameObject> goldCubes = new List<GameObject>();
     public static List<Vector3> goldCubeStartLocations = new List<Vector3>();
     public static List<Vector3> speedBoostStartLocations = new List<Vector3>();
+    public GameObject escMenu; public static bool menuIsLoaded = false;
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.F13)) { DebugLoadLevel(Application.loadedLevel - 1); }
         if (Input.GetKeyDown(KeyCode.F14)) { DebugLoadLevel(Application.loadedLevel + 1); }
+        if (Input.GetKeyDown(KeyCode.Escape)) { if (!menuIsLoaded) { Instantiate(escMenu, new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity); } }
     }
 
     void Awake()

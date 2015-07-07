@@ -44,7 +44,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 478778}
-  - 114: {fileID: 11480198}
   - 114: {fileID: 11400098}
   m_Layer: 0
   m_Name: SpeedBoost
@@ -72,7 +71,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 171420}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -3, y: 1.18180799, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 451430}
@@ -209,17 +208,6 @@ MonoBehaviour:
   boostAmount: 5
   boostTimeSeconds: 5
   SoundPlayer: {fileID: 140216, guid: db2f3ff02e4c66c488417ce67df11594, type: 2}
---- !u!114 &11480198
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 194968}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ae56604824eeda49a11924aa27ac60a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
