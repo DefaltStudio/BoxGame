@@ -5,6 +5,8 @@ using System.Collections;
 public class MusicPlayer : MonoBehaviour {
 
     public AudioClip spilmusik;
+    public AudioClip spilmusikWaiting;
+
     private float currentMusicTime;
 
     void Start() {
@@ -19,6 +21,8 @@ public class MusicPlayer : MonoBehaviour {
     {
         AudioSource audio = GetComponent<AudioSource>();
         if (lvl == 6)
+        { audio.clip = spilmusikWaiting; currentMusicTime = 0.0f; audio.Play(); }
+        else if (lvl == 7)
         { audio.clip = spilmusik; currentMusicTime = 0.0f; audio.Play(); }
         GetComponent<AudioSource>().time = currentMusicTime;
     }
