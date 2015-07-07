@@ -392,23 +392,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 8231930, guid: e7ec59d864376aa4cb0df25b8b1cf3c7, type: 2}
-      propertyPath: Loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11431930, guid: e7ec59d864376aa4cb0df25b8b1cf3c7, type: 2}
-      propertyPath: spilmusik
-      value: 
-      objectReference: {fileID: 8300000, guid: d6212ec4e5b95824b8b49ab94aa88664, type: 3}
-    - target: {fileID: 8231930, guid: e7ec59d864376aa4cb0df25b8b1cf3c7, type: 2}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 17f23ce5c6fba274a838854f875ba34d, type: 3}
-    - target: {fileID: 8231930, guid: e7ec59d864376aa4cb0df25b8b1cf3c7, type: 2}
-      propertyPath: OutputAudioMixerGroup
-      value: 
-      objectReference: {fileID: 24386744, guid: 226a5eecaf9d0b945860ab15f16ab8f3,
-        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e7ec59d864376aa4cb0df25b8b1cf3c7, type: 2}
   m_IsPrefabParent: 0
