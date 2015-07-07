@@ -4840,7 +4840,22 @@ Prefab:
       propertyPath: ActiveRange
       value: 10
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6423582, guid: e814409fd5713e64a9c601bce7ff57a5, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415760, guid: e814409fd5713e64a9c601bce7ff57a5, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6420040, guid: e814409fd5713e64a9c601bce7ff57a5, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6420040, guid: e814409fd5713e64a9c601bce7ff57a5, type: 2}
+    - {fileID: 6415760, guid: e814409fd5713e64a9c601bce7ff57a5, type: 2}
+    - {fileID: 6423582, guid: e814409fd5713e64a9c601bce7ff57a5, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: e814409fd5713e64a9c601bce7ff57a5, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1804821283

@@ -18,7 +18,7 @@ public class MusicPlayer : MonoBehaviour {
     void OnLevelWasLoaded(int lvl)
     {
         AudioSource audio = GetComponent<AudioSource>();
-        if (lvl == 2)
+        if (lvl == 6)
         { audio.clip = spilmusik; currentMusicTime = 0.0f; audio.Play(); }
         GetComponent<AudioSource>().time = currentMusicTime;
     }
