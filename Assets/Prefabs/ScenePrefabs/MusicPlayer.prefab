@@ -36,7 +36,9 @@ AudioSource:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 131930}
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24386744, guid: 226a5eecaf9d0b945860ab15f16ab8f3,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: d6212ec4e5b95824b8b49ab94aa88664, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -71,13 +73,23 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
   spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
     - time: 0
@@ -98,6 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fcc20cf0ccce5143a28e09799a605ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spilmusik: {fileID: 8300000, guid: d6212ec4e5b95824b8b49ab94aa88664, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -109,4 +122,3 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 131930}
   m_IsPrefabParent: 1
-  m_IsExploded: 1

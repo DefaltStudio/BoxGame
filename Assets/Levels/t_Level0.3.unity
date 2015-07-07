@@ -4489,7 +4489,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: The <color=#0da7cd>player</color> must not ever touch the <color=#e44f40>enemy</color>.
+  m_Text: The <color=#0da7cd>player</color> must never touch the <color=#e44f40>enemy</color>.
 --- !u!222 &1466963749
 CanvasRenderer:
   m_ObjectHideFlags: 0
