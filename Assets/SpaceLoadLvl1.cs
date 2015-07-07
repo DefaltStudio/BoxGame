@@ -5,6 +5,6 @@ public class SpaceLoadLvl1 : MonoBehaviour {
 
 	void Update () {
         if (Input.GetButtonDown("StartGame"))
-            Application.LoadLevel(2);
+            Application.LoadLevel(Application.loadedLevel + 1);
 	}
 }
