@@ -11,6 +11,7 @@ TagManager:
   - Door
   - PlusBoost
   - Explosion1
+  - BeautifulGirl
   layers:
   - Default
   - TransparentFX

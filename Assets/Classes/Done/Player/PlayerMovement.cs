@@ -3,6 +3,7 @@ using System.Timers;
 using UnityEngine;
 using System.Collections.Generic;
 
+[RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour {
 	public float moveSpeed;
     private float initialMoveSpeed;

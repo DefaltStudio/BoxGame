@@ -60,7 +60,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '<color=white>Current version: v1.0.4-alpha</color>'
+  m_Text: '<color=white>Current version: v1.1.0-alpha</color>'
 --- !u!114 &11458830
 MonoBehaviour:
   m_ObjectHideFlags: 1
