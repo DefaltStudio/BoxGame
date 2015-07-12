@@ -51,8 +51,8 @@ public class PlayerMovement : MonoBehaviour {
         if (Physics.Raycast(transform.position, -Vector3.up, out hit))
             distanceToGround = hit.distance;
 
-        if (distanceToGround < .51)
-        {
+        //if (distanceToGround < .51)
+        //{
             if (Input.GetButton("Forward"))
                 GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + cameraRelativeForward * moveSpeed * Time.deltaTime);
             if (Input.GetButton("Horizontal") && Input.GetAxisRaw("Horizontal") > 0)
@@ -71,7 +71,7 @@ public class PlayerMovement : MonoBehaviour {
                 GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + cameraRelativeForward * moveSpeed * Time.deltaTime * Input.GetAxis("Vertical"));
             if (Input.GetAxis("Vertical") < 0 && !Input.GetButton("Reverse"))
                 GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + cameraRelativeBack * moveSpeed * Time.deltaTime * -Input.GetAxis("Vertical"));
-        }
+        //}
 
         if (Input.GetButtonDown("Reset") || Input.GetButtonDown("ResetPlayer"))
             Die();

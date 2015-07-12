@@ -8,7 +8,7 @@ public class EndMessageExitGame : MonoBehaviour {
         if (!Application.isEditor)
         {
             Application.OpenURL("http://www.defalt.net/");
-            System.Diagnostics.Process.GetCurrentProcess().Kill();
+            System.Diagnostics.Process.GetCurrentProcess().Kill();          // Disable when exporting for web!
         }
         
         if (Input.GetKeyDown(KeyCode.Space))
@@ -16,7 +16,7 @@ public class EndMessageExitGame : MonoBehaviour {
             if (!Application.isEditor)
             {
                 Application.OpenURL("http://www.defalt.net/");
-                System.Diagnostics.Process.GetCurrentProcess().Kill();
+                System.Diagnostics.Process.GetCurrentProcess().Kill();      // Disable when exporting for web!
             }
         }
     }

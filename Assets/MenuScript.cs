@@ -16,7 +16,7 @@ public class MenuScript : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (!Application.isEditor)
-                System.Diagnostics.Process.GetCurrentProcess().Kill();
+                System.Diagnostics.Process.GetCurrentProcess().Kill();      // Disable when exporting for web!
         }
     }
 }

@@ -14,9 +14,9 @@ public class Manager : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F13)) { DebugLoadLevel(Application.loadedLevel - 1); }
-        if (Input.GetKeyDown(KeyCode.F14)) { DebugLoadLevel(Application.loadedLevel + 1); }
-        if (Input.GetKeyDown(KeyCode.Escape)) { if (!menuIsLoaded) { Instantiate(escMenu, new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity); } }
+        //if (Input.GetKeyDown(KeyCode.F13)) { DebugLoadLevel(Application.loadedLevel - 1); }       // For Debugging only!
+        //if (Input.GetKeyDown(KeyCode.F14)) { DebugLoadLevel(Application.loadedLevel + 1); }       // For Debugging only!
+        if (Input.GetKeyDown(KeyCode.Escape) && !Application.isWebPlayer) { if (!menuIsLoaded) { Instantiate(escMenu, new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity); } }    // PC, Mac and Linux Only!
     }
 
     void Awake()
