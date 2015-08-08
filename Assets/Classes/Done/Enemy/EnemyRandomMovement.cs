@@ -18,7 +18,7 @@ public class EnemyRandomMovement : MonoBehaviour {
     {
          if (transform.position == newPointObj.transform.position)
          {
-            Destroy(newPointObj); // Destroy old point
+            Destroy(newPointObj);  // Destroy old point
             GenerateNewPoint();    // Generate new point
          }
 
@@ -34,12 +34,8 @@ public class EnemyRandomMovement : MonoBehaviour {
     {
         int randomDir = Mathf.FloorToInt(Random.Range(0f, 4f));
 
-        //Debug.Log("Test1: " + test);
-
         if (randomDir == 0) // Left
         {
-            
-            Vector3 left = transform.TransformDirection(Vector3.left);
             RaycastHit hit;
             Ray leftRay = new Ray(transform.position, Vector3.left);
             Physics.Raycast(leftRay, out hit);
@@ -50,10 +46,10 @@ public class EnemyRandomMovement : MonoBehaviour {
         
             Instantiate(newPoint, transform.position + new Vector3(-distance, 0, 0), Quaternion.identity);
         }
+
         else if (randomDir == 1) // Right
         {
             
-            Vector3 right = transform.TransformDirection(-Vector3.left);
             RaycastHit hit;
             Ray rightRay = new Ray(transform.position, -Vector3.left);
             Physics.Raycast(rightRay, out hit);
@@ -64,9 +60,9 @@ public class EnemyRandomMovement : MonoBehaviour {
 
             Instantiate(newPoint, transform.position + new Vector3(distance, 0, 0), Quaternion.identity);
         }
+
         else if (randomDir == 2) // Forward
         {
-            Vector3 fwd = transform.TransformDirection(Vector3.forward);
             RaycastHit hit;
             Ray fwdRay = new Ray(transform.position, Vector3.forward);
             Physics.Raycast(fwdRay, out hit);
@@ -77,9 +73,9 @@ public class EnemyRandomMovement : MonoBehaviour {
 
             Instantiate(newPoint, transform.position + new Vector3(0, 0, distance), Quaternion.identity);
         }
+
         else if (randomDir == 3) // Backwards
         {
-            Vector3 back = transform.TransformDirection(-Vector3.forward);
             RaycastHit hit;
             Ray backRay = new Ray(transform.position, -Vector3.forward);
             Physics.Raycast(backRay, out hit);

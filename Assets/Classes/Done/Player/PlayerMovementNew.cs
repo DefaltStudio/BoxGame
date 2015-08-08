@@ -13,7 +13,7 @@ public class Prefabs
 public class PlayerMovementNew : MonoBehaviour
 {
     #region Variables
-    public static float moveSpeed = 5f;
+    public static float playerMoveSpeed = 5f;
     public Prefabs prefabs;
     public float turnSmoothing = 2f;
     public float snapSmoothing = 8f;
@@ -38,7 +38,7 @@ public class PlayerMovementNew : MonoBehaviour
                                                 RigidbodyConstraints.FreezeRotationY | 
                                                 RigidbodyConstraints.FreezeRotationZ; // Is this even needed?
         CameraTurn.player = gameObject; // Try disabling this
-        initMoveSpeed = moveSpeed;   // this should not be needed
+        initMoveSpeed = playerMoveSpeed;   // this should not be needed
     }
 
     void FixedUpdate() // Movement in here
@@ -63,10 +63,6 @@ public class PlayerMovementNew : MonoBehaviour
         {
             PlayerDie();
         }
-        if (other.gameObject.tag == Tags.speedboost)
-        {
-
-        }
     }
 
     private void MovementManagement (float horizontal, float vertical)
@@ -75,7 +71,7 @@ public class PlayerMovementNew : MonoBehaviour
         {
             Vector3 movement = new Vector3(horizontal, 0f, vertical);
             movement = transform.TransformDirection(movement);
-            GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + movement * Time.deltaTime * moveSpeed);
+            GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + movement * Time.deltaTime * playerMoveSpeed);
         }
         if (horizontal == 0f && vertical == 0f)
         {
@@ -130,6 +126,7 @@ public class PlayerMovementNew : MonoBehaviour
         GetComponent<Rigidbody>().velocity = new Vector3(0f, -0.1f, 0f);
         transform.position = spawnPosition;
         RespawnPickups();
+        playerMoveSpeed = initMoveSpeed;
     }
 
     private void RespawnPickups()

@@ -6,8 +6,6 @@ public class DestroySpeedBoost : MonoBehaviour {
 	public float boostAmount = 5.0f;
     public float boostTimeSeconds = 5;
 
-    static private System.Timers.Timer aTimer = new System.Timers.Timer();
-
     public GameObject SoundPlayer;
     private Vector3 boostStartPos;
 
@@ -25,9 +23,9 @@ public class DestroySpeedBoost : MonoBehaviour {
     {
         if (other.gameObject.tag == Tags.player)
         {
-            if (PlayerMovementNew.moveSpeed == PlayerMovementNew.initMoveSpeed)
+            if (PlayerMovementNew.playerMoveSpeed == PlayerMovementNew.initMoveSpeed)
             {
-                PlayerMovementNew.moveSpeed += boostAmount;
+                PlayerMovementNew.playerMoveSpeed += boostAmount;
                 Instantiate(SoundPlayer, transform.position, Quaternion.identity);
                 Manager.speedBoostStartLocations.Add(boostStartPos);
                 StartCoroutine(Wait(5f));
@@ -46,7 +44,7 @@ public class DestroySpeedBoost : MonoBehaviour {
 
     private void ResetSpeed()
     {
-        PlayerMovementNew.moveSpeed -= boostAmount;
+        PlayerMovementNew.playerMoveSpeed -= boostAmount;
         Destroy(gameObject);
     }
 }
