@@ -7,4 +7,5 @@ public class Tags
     public const string enemy = "Enemy";
     public const string goal = "Goal";
     public const string wall = "Wall";
+    public const string speedboost = "PlusBoost";
 }
