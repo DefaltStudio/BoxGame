@@ -3420,6 +3420,8 @@ MonoBehaviour:
     explosion: {fileID: 100000, guid: 8d4acaa0eb2fffe45946918565f1ccbb, type: 2}
     goldCube: {fileID: 0}
     speedBoost: {fileID: 0}
+  turnSmoothing: 2
+  playerRotation: 0
 --- !u!4 &1164374863 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 561770eeba888c04f9e49fb130d7c130, type: 2}

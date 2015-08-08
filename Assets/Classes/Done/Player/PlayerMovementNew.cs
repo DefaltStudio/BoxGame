@@ -77,9 +77,13 @@ namespace Assets.Classes.Done.Player
 
                 //GetComponent<Rigidbody>().velocity = move * moveSpeed;
             }
+            if (horizontal == 0f && vertical == 0f)
+            {
+                AlignPlayer();
+            }
         }
 
-        public void RotateCam (string direction)
+        private void RotateCam (string direction)
         {
             direction.Trim().ToLower();
             if (direction == "left" && CameraTurn.playerCanRotate)
@@ -105,6 +109,18 @@ namespace Assets.Classes.Done.Player
                 targetRotation.eulerAngles = new Vector3(0, playerRotation, 0);
                 GetComponent<Rigidbody>().MoveRotation(targetRotation);
             }
+        }
+
+        private void AlignPlayer()
+        {
+            float roundX = Mathf.RoundToInt(GetComponent<Rigidbody>().position.x),
+                      roundZ = Mathf.RoundToInt(GetComponent<Rigidbody>().position.z);
+
+            float lerpedX = Mathf.Lerp(GetComponent<Rigidbody>().position.x, roundX, Time.deltaTime),
+                  lerpedZ = Mathf.Lerp(GetComponent<Rigidbody>().position.z, roundZ, Time.deltaTime);
+
+            Vector3 newRoundedPos = new Vector3(lerpedX, 0.5f, lerpedZ);
+            GetComponent<Rigidbody>().MovePosition(newRoundedPos);
         }
 
         public void PlayerDie()
