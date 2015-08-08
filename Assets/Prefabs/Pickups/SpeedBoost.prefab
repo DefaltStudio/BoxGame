@@ -45,6 +45,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 478778}
   - 114: {fileID: 11400098}
+  - 65: {fileID: 6591830}
   m_Layer: 0
   m_Name: SpeedBoost
   m_TagString: Untagged
@@ -84,7 +85,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 194968}
   m_LocalRotation: {x: .104528472, y: 0, z: 0, w: .994521916}
-  m_LocalPosition: {x: 3, y: 1, z: -3}
+  m_LocalPosition: {x: -5, y: 1, z: -4}
   m_LocalScale: {x: .344935089, y: .419144034, z: .419144034}
   m_Children:
   - {fileID: 452270}
@@ -129,10 +130,22 @@ MeshCollider:
   m_GameObject: {fileID: 171420}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Convex: 0
   m_Mesh: {fileID: 4300000, guid: 77afaadfd22322c448f3c965e0bb5eed, type: 3}
+--- !u!65 &6591830
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 194968}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.4000001, y: 5.17000008, z: 1}
+  m_Center: {x: -2.96000004, y: 0, z: 0}
 --- !u!108 &10808512
 Light:
   m_ObjectHideFlags: 1

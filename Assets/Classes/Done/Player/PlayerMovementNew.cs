@@ -24,6 +24,7 @@ public class PlayerMovementNew : MonoBehaviour
     public static float boostTimeLeft = 0f;
 
     private static Vector3 spawnPosition;
+    //private Quaternion targetRotation;
     public static float initMoveSpeed;
     #endregion
 
@@ -41,20 +42,28 @@ public class PlayerMovementNew : MonoBehaviour
         initMoveSpeed = playerMoveSpeed;   // this should not be needed
     }
 
+    void Start()
+    {
+        //targetRotation = GetComponent<Rigidbody>().rotation;
+        //Debug.Log("Target Rotation, Start: " + targetRotation);
+    }
+
     void FixedUpdate() // Movement in here
     {
         float h = Input.GetAxis(Controls.horizontal); float v = Input.GetAxis(Controls.vertical);
         MovementManagement(h, v);
+
+        //GetComponent<Rigidbody>().MoveRotation(Quaternion.Lerp(GetComponent<Rigidbody>().rotation, targetRotation, Time.deltaTime * turnSmoothing));
     }
 
     void Update()
     {
         if (Input.GetButtonDown(Controls.resetPlayer))
             PlayerDie();
-        if (Input.GetButtonDown(Controls.camLeft))
-            RotateCam("left");
-        if (Input.GetButtonDown(Controls.camRight))
-            RotateCam("right");
+        //if (Input.GetButtonDown(Controls.camLeft))
+        //    RotatePlayer("left");
+        //if (Input.GetButtonDown(Controls.camRight))
+        //    RotatePlayer("right");
     }
 
     void OnCollisionEnter (Collision other)
@@ -79,31 +88,20 @@ public class PlayerMovementNew : MonoBehaviour
         }
     }
 
-    private void RotateCam (string direction)
+    private void RotatePlayer (string direction)
     {
+        //Debug.Log("Target Rotation, RotatePlayer" + targetRotation);
         direction.Trim().ToLower();
+
         if (direction == "left" && CameraTurn.playerCanRotate)
         {
             CameraTurn.playerCanRotate = false;
-            playerRotation += 90;
-            if (playerRotation == 360)
-                playerRotation = 0;
-
-            Quaternion targetRotation = GetComponent<Rigidbody>().rotation;
-            targetRotation.eulerAngles = new Vector3(0, playerRotation, 0);
-            GetComponent<Rigidbody>().MoveRotation(targetRotation);
-
+            // targetRotation ...
         }
         if (direction == "right" && CameraTurn.playerCanRotate)
         {
             CameraTurn.playerCanRotate = false;
-            playerRotation -= 90;
-            if (playerRotation == -360)
-                playerRotation = 0;
-
-            Quaternion targetRotation = GetComponent<Rigidbody>().rotation;
-            targetRotation.eulerAngles = new Vector3(0, playerRotation, 0);
-            GetComponent<Rigidbody>().MoveRotation(targetRotation);
+            // targetRotation ...
         }
     }
 
@@ -133,7 +131,6 @@ public class PlayerMovementNew : MonoBehaviour
     {
         foreach (Vector3 speedBoostStartLocation in Manager.speedBoostStartLocations)
         {
-            Debug.Log(speedBoostStartLocation);
             Instantiate(prefabs.speedBoost, speedBoostStartLocation, Quaternion.identity);
         }
 

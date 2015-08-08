@@ -12,8 +12,8 @@ GameObject:
   - 65: {fileID: 6548198}
   - 23: {fileID: 2348198}
   - 54: {fileID: 5448198}
-  - 114: {fileID: 11448198}
   - 82: {fileID: 8248198}
+  - 114: {fileID: 11451414}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -161,7 +161,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
---- !u!114 &11448198
+--- !u!114 &11451414
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -169,23 +169,39 @@ MonoBehaviour:
   m_GameObject: {fileID: 148198}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33fdc4ed1d7807f45a9e9f6690f7e650, type: 3}
+  m_Script: {fileID: 11500000, guid: 2458a3ce76f1e1c4bbe5831f76f498bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  maxSpeed: 5
-  explosion: {fileID: 100000, guid: 8d4acaa0eb2fffe45946918565f1ccbb, type: 2}
-  cam: {fileID: 0}
-  playerTransform: {fileID: 448198}
-  goldCube: {fileID: 0}
-  speedBoost: {fileID: 0}
+  prefabs:
+    explosion: {fileID: 100000, guid: 8d4acaa0eb2fffe45946918565f1ccbb, type: 2}
+    goldCube: {fileID: 133842, guid: 60bc7a53d62241f4aa61a59356161761, type: 2}
+    speedBoost: {fileID: 194968, guid: ded46182c2c150a428949a7dc681e383, type: 2}
+  turnSmoothing: 2
+  snapSmoothing: 8
+  playerRotation: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: prefabs.explosion
+      value: 
+      objectReference: {fileID: 100000, guid: 8d4acaa0eb2fffe45946918565f1ccbb, type: 2}
+    - target: {fileID: 0}
+      propertyPath: prefabs.goldCube
+      value: 
+      objectReference: {fileID: 133842, guid: 60bc7a53d62241f4aa61a59356161761, type: 2}
+    - target: {fileID: 0}
+      propertyPath: prefabs.speedBoost
+      value: 
+      objectReference: {fileID: 194968, guid: ded46182c2c150a428949a7dc681e383, type: 2}
+    - target: {fileID: 0}
+      propertyPath: moveSpeed
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 148198}
