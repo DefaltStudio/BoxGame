@@ -18,6 +18,7 @@ namespace Assets.Classes.Done.Player
         public float moveSpeed = 5f;
         public Prefabs prefabs;
         public float turnSmoothing = 2f;
+        public float snapSmoothing = 8f;
 
         public float playerRotation = 0;
         private static Vector3 spawnPosition;
@@ -116,8 +117,8 @@ namespace Assets.Classes.Done.Player
             float roundX = Mathf.RoundToInt(GetComponent<Rigidbody>().position.x),
                       roundZ = Mathf.RoundToInt(GetComponent<Rigidbody>().position.z);
 
-            float lerpedX = Mathf.Lerp(GetComponent<Rigidbody>().position.x, roundX, Time.deltaTime),
-                  lerpedZ = Mathf.Lerp(GetComponent<Rigidbody>().position.z, roundZ, Time.deltaTime);
+            float lerpedX = Mathf.Lerp(GetComponent<Rigidbody>().position.x, roundX, Time.deltaTime * snapSmoothing),
+                  lerpedZ = Mathf.Lerp(GetComponent<Rigidbody>().position.z, roundZ, Time.deltaTime * snapSmoothing);
 
             Vector3 newRoundedPos = new Vector3(lerpedX, 0.5f, lerpedZ);
             GetComponent<Rigidbody>().MovePosition(newRoundedPos);
