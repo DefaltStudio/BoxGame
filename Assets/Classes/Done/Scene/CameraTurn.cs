@@ -6,6 +6,7 @@ public class CameraTurn : MonoBehaviour {
 
     public static int camLocation;
     public static GameObject player;
+    public static bool playerCanRotate = false;
 
     void Start()
     {
@@ -16,13 +17,18 @@ public class CameraTurn : MonoBehaviour {
 	{
         if (Input.GetButtonDown(Controls.camLeft))
         {
-            //TurnCamLeft();
-		}
+            TurnCamLeft();
+            playerCanRotate = true;
+        }
 
         else if (Input.GetButton(Controls.camRight))
         {
-            //TurnCamRight();
+            TurnCamRight();
+            playerCanRotate = true;
         }
+
+        if (GetComponent<Animation>().isPlaying)
+            playerCanRotate = false;
 	}
 
     void playForward(string Animation)

@@ -12,15 +12,17 @@ namespace Assets.Classes.Done.Player
     }
 
     [RequireComponent(typeof(Rigidbody))]
-    class PlayerMovementNew : MonoBehaviour
+    public class PlayerMovementNew : MonoBehaviour
     {
         #region Variables
         public float moveSpeed = 5f;
         public Prefabs prefabs;
         public float turnSmoothing = 2f;
+
+        public float playerRotation = 0;
+        private static Vector3 spawnPosition;
         #endregion
 
-        private static Vector3 spawnPosition;
 
         void Awake()
         {
@@ -45,6 +47,10 @@ namespace Assets.Classes.Done.Player
         {
             if (Input.GetButtonDown(Controls.resetPlayer))
                 PlayerDie();
+            if (Input.GetButtonDown(Controls.camLeft))
+                RotateCam("left");
+            if (Input.GetButtonDown(Controls.camRight))
+                RotateCam("right");
         }
 
         void OnCollisionEnter (Collision other)
@@ -71,27 +77,33 @@ namespace Assets.Classes.Done.Player
 
                 //GetComponent<Rigidbody>().velocity = move * moveSpeed;
             }
-
-            if (Input.GetButtonDown(Controls.camLeft))
-                RotateCam("left");
-            if (Input.GetButtonDown(Controls.camRight))
-                RotateCam("right");
         }
 
-        private void RotateCam (string direction)
+        public void RotateCam (string direction)
         {
             direction.Trim().ToLower();
-            if (direction == "left")
+            if (direction == "left" && CameraTurn.playerCanRotate)
             {
-                Debug.Log("Left!!");
-                Quaternion targetRotation = Quaternion.identity;
-                targetRotation.eulerAngles = new Vector3(0, 90, 0);
-                Quaternion newRotation = Quaternion.Lerp(GetComponent<Rigidbody>().rotation, targetRotation, turnSmoothing * Time.deltaTime);
-                GetComponent<Rigidbody>().MoveRotation(newRotation);
+                CameraTurn.playerCanRotate = false;
+                playerRotation += 90;
+                if (playerRotation == 360)
+                    playerRotation = 0;
+
+                Quaternion targetRotation = GetComponent<Rigidbody>().rotation;
+                targetRotation.eulerAngles = new Vector3(0, playerRotation, 0);
+                GetComponent<Rigidbody>().MoveRotation(targetRotation);
+
             }
-            if (direction == "right")
+            if (direction == "right" && CameraTurn.playerCanRotate)
             {
-                Debug.Log("Right!!");
+                CameraTurn.playerCanRotate = false;
+                playerRotation -= 90;
+                if (playerRotation == -360)
+                    playerRotation = 0;
+
+                Quaternion targetRotation = GetComponent<Rigidbody>().rotation;
+                targetRotation.eulerAngles = new Vector3(0, playerRotation, 0);
+                GetComponent<Rigidbody>().MoveRotation(targetRotation);
             }
         }
 
