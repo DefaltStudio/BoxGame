@@ -7,14 +7,14 @@ using System.Collections.Generic;
 public class PlayerMovement : MonoBehaviour {
 	public float moveSpeed;
     private float initialMoveSpeed;
-    public float maxSpeed = 5f;
+    //public float maxSpeed = 5f;
 	static public float boostAmount;
 
 	public GameObject explosion;
     private static Vector3 spawnPosition;
 	public Transform cam;
 
-    public GameObject playerTransform;
+    //public GameObject playerTransform;
 
     private Vector3 moveDirection;
     public static float boostTimeSeconds;

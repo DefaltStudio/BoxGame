@@ -5,13 +5,17 @@ using System.Collections.Generic;
 public class Patrol : MonoBehaviour {
     public List<Transform> patrolPoints = new List<Transform>();
     public float moveSpeed;
+
     private int currentPoint;
-    
+
+    void Awake()
+    {
+        currentPoint = 0;
+    }
+
     void Start()
     {
-
         transform.position = patrolPoints[currentPoint].position;
-        currentPoint = 0;
     }
 
     void Update()
@@ -24,5 +28,4 @@ public class Patrol : MonoBehaviour {
 
         transform.position = Vector3.MoveTowards(transform.position, patrolPoints[currentPoint].position, moveSpeed * Time.deltaTime);
     }
-
 }

@@ -9,13 +9,13 @@ InputManager:
     m_Name: Horizontal
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: right
-    positiveButton: left
-    altNegativeButton: d
-    altPositiveButton: a
+    negativeButton: left
+    positiveButton: right
+    altNegativeButton: a
+    altPositiveButton: d
     gravity: 10000
     dead: 0
-    sensitivity: 3
+    sensitivity: 100
     snap: 1
     invert: 0
     type: 0
@@ -86,32 +86,16 @@ InputManager:
     axis: 0
     joyNum: 3
   - serializedVersion: 3
-    m_Name: Forward
+    m_Name: Vertical
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: 
+    negativeButton: down
     positiveButton: up
-    altNegativeButton: 
+    altNegativeButton: s
     altPositiveButton: w
-    gravity: 1000
-    dead: .00100000005
-    sensitivity: 1000
-    snap: 0
-    invert: 0
-    type: 0
-    axis: 0
-    joyNum: 0
-  - serializedVersion: 3
-    m_Name: Reverse
-    descriptiveName: 
-    descriptiveNegativeName: 
-    negativeButton: 
-    positiveButton: down
-    altNegativeButton: 
-    altPositiveButton: s
-    gravity: 1000
-    dead: .00100000005
-    sensitivity: 1000
+    gravity: 10000
+    dead: 0
+    sensitivity: 100
     snap: 0
     invert: 0
     type: 0
@@ -150,7 +134,7 @@ InputManager:
     axis: 0
     joyNum: 0
   - serializedVersion: 3
-    m_Name: HorizontalJoystick
+    m_Name: Horizontal
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -161,28 +145,12 @@ InputManager:
     dead: .200000003
     sensitivity: 3
     snap: 0
-    invert: 1
+    invert: 0
     type: 2
     axis: 0
     joyNum: 0
   - serializedVersion: 3
-    m_Name: Vertical
-    descriptiveName: 
-    descriptiveNegativeName: 
-    negativeButton: 
-    positiveButton: 
-    altNegativeButton: 
-    altPositiveButton: joystick button 1
-    gravity: 1
-    dead: .200000003
-    sensitivity: 3
-    snap: 0
-    invert: 1
-    type: 2
-    axis: 1
-    joyNum: 0
-  - serializedVersion: 3
-    m_Name: ResetPlayer
+    m_Name: Reset
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -198,7 +166,7 @@ InputManager:
     axis: 1
     joyNum: 0
   - serializedVersion: 3
-    m_Name: CamTurnLeft
+    m_Name: TurnLeft
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -214,7 +182,7 @@ InputManager:
     axis: 1
     joyNum: 0
   - serializedVersion: 3
-    m_Name: CamTurnRight
+    m_Name: TurnRight
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -230,7 +198,7 @@ InputManager:
     axis: 1
     joyNum: 0
   - serializedVersion: 3
-    m_Name: DPadHorizontal
+    m_Name: Horizontal
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -246,7 +214,7 @@ InputManager:
     axis: 5
     joyNum: 6
   - serializedVersion: 3
-    m_Name: DPadVertical
+    m_Name: Vertical
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -257,9 +225,9 @@ InputManager:
     dead: .200000003
     sensitivity: 3
     snap: 0
-    invert: 0
+    invert: 1
     type: 2
-    axis: 6
+    axis: 1
     joyNum: 0
   - serializedVersion: 3
     m_Name: StartGame
