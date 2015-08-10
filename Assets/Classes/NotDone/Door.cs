@@ -4,15 +4,15 @@ using System.Collections;
 public class Door : MonoBehaviour {
 
     public Transform endPosition;
-    private Transform startPosition;
+    //private Transform startPosition;
 
     public float moveSpeed;
-    private bool doorOpen;
+    //private bool doorOpen;
 
     void Start()
     {
-        doorOpen = true;
-        startPosition = transform;
+        //doorOpen = true;
+        //startPosition = transform;
     }
 
     void Update()

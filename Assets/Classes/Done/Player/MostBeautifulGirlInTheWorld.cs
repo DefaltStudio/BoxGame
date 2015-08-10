@@ -8,25 +8,25 @@ public class MostBeautifulGirlInTheWorld : MonoBehaviour {
     public GameObject explosion;
     
     private float initialMoveSpeed;
-    private Vector3 moveDirection;
+    //private Vector3 moveDirection;
 
-    private static Vector3 spawnPosition;
-    private GameObject SweetBeautifulGirl;
-    private string BeautifulGirl = "Player";
+    //private static Vector3 spawnPosition;
+    //private GameObject SweetBeautifulGirl;
+    //private string BeautifulGirl = "Player";
 
     void Awake()
     {
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
-        moveDirection = Vector3.zero;
+        //moveDirection = Vector3.zero;
         initialMoveSpeed = moveSpeed;
     }
 
     void Start()
     {
-        spawnPosition = transform.position;
+        //spawnPosition = transform.position;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (Input.GetKey(KeyCode.T)) // Forward
             GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + Vector3.forward * moveSpeed * Time.deltaTime);
@@ -49,7 +49,7 @@ public class MostBeautifulGirlInTheWorld : MonoBehaviour {
     {
         if (hit.transform.tag == "Enemy")
             Die();
-        if (hit.transform.tag == BeautifulGirl)
-            Love.Kiss(SweetBeautifulGirl);
+        //if (hit.transform.tag == BeautifulGirl)
+        //    Love.Kiss(SweetBeautifulGirl);
     }
 }

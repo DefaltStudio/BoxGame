@@ -6,35 +6,45 @@ public class DestroySpeedBoost : MonoBehaviour {
 	public float boostAmount = 5.0f;
     public float boostTimeSeconds = 5;
 
-    static private float boostTimeLeft = 0;
-    static private System.Timers.Timer aTimer = new System.Timers.Timer();
-
     public GameObject SoundPlayer;
-    private static Vector3 boostStartPos;
-
-    void Awake()
-    {
-        PlayerMovement.boostTimeSeconds = boostTimeSeconds;
-    }
+    private Vector3 boostStartPos;
 
     void Start()
     {
-        PlayerMovement.boostAmount = boostAmount;
         boostStartPos = transform.position;
     }
 
-	void OnCollisionEnter(Collision hit)
+    void Update()
     {
-        Instantiate(SoundPlayer, transform.position, Quaternion.identity);
-        Manager.speedBoostStartLocations.Add(boostStartPos);
-        Destroy(gameObject);
+        //BoostTime();
+    }
+
+	void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == Tags.player)
+        {
+            if (PlayerMovementNew.playerMoveSpeed == PlayerMovementNew.initMoveSpeed)
+            {
+                PlayerMovementNew.playerMoveSpeed += boostAmount;
+                Instantiate(SoundPlayer, transform.position, Quaternion.identity);
+                Manager.speedBoostStartLocations.Add(boostStartPos);
+                StartCoroutine(Wait(5f));
+            }
+        }
 	}
 
-    private static void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
+    IEnumerator Wait(float time)
     {
-        if (boostTimeLeft > 0)
-            boostTimeLeft--;
-        else
-            aTimer.Enabled = false;
+        GetComponentInChildren<Renderer>().enabled = false;
+        GetComponentInChildren<Light>().enabled = false;
+        GetComponentInChildren<MeshCollider>().enabled = false;
+        yield return new WaitForSeconds(time);
+        ResetSpeed();
+    }
+
+    private void ResetSpeed()
+    {
+        PlayerMovementNew.playerMoveSpeed -= boostAmount;
+        Destroy(gameObject);
     }
 }
