@@ -1,0 +1,6 @@
+'Door.cs'
+	Denne sidder på 'Door.prefab'.
+	Den skal få døren til at bevæge sig, når den får sit input fra 'ButtonTrigger.cs'
+'ButtonTrigger.cs'
+	Denne sidder på 'Trigger.prefab'.
+	Den skal aktivere funktioner i andre prefabs. Fx døren (som ovenstående).
