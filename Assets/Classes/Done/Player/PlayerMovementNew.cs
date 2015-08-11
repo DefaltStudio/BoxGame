@@ -24,7 +24,7 @@ public class PlayerMovementNew : MonoBehaviour
     public static float boostTimeLeft = 0f;
 
     private static Vector3 spawnPosition;
-    //private Quaternion targetRotation;
+    public static Quaternion targetRotation;
     public static float initMoveSpeed;
     #endregion
 
@@ -44,7 +44,7 @@ public class PlayerMovementNew : MonoBehaviour
 
     void Start()
     {
-        //targetRotation = GetComponent<Rigidbody>().rotation;
+		targetRotation = GetComponent<Rigidbody>().rotation;
         //Debug.Log("Target Rotation, Start: " + targetRotation);
     }
 
@@ -53,17 +53,18 @@ public class PlayerMovementNew : MonoBehaviour
         float h = Input.GetAxis(Controls.horizontal); float v = Input.GetAxis(Controls.vertical);
         MovementManagement(h, v);
 
-        //GetComponent<Rigidbody>().MoveRotation(Quaternion.Lerp(GetComponent<Rigidbody>().rotation, targetRotation, Time.deltaTime * turnSmoothing));
+		GetComponent<Rigidbody>().MoveRotation(Quaternion.Lerp(
+			GetComponent<Rigidbody>().rotation, targetRotation, Time.deltaTime * turnSmoothing));
     }
 
     void Update()
     {
         if (Input.GetButtonDown(Controls.resetPlayer))
             PlayerDie();
-        //if (Input.GetButtonDown(Controls.camLeft))
-        //    RotatePlayer("left");
-        //if (Input.GetButtonDown(Controls.camRight))
-        //    RotatePlayer("right");
+        if (Input.GetButtonDown(Controls.camLeft))
+            RotatePlayer("left");
+        if (Input.GetButtonDown(Controls.camRight))
+           RotatePlayer("right");
     }
 
     void OnCollisionEnter (Collision other)
@@ -90,17 +91,21 @@ public class PlayerMovementNew : MonoBehaviour
 
     private void RotatePlayer (string direction)
     {
-        //Debug.Log("Target Rotation, RotatePlayer" + targetRotation);
+        Debug.Log("Target Rotation, RotatePlayer" + targetRotation);
         direction.Trim().ToLower();
 
         if (direction == "left" && CameraTurn.playerCanRotate)
         {
+			Debug.Log("Bum1");
             CameraTurn.playerCanRotate = false;
+			//targetRotation.eulerAngles += new Vector3(0f, 90f, 0f);
             // targetRotation ...
         }
         if (direction == "right" && CameraTurn.playerCanRotate)
         {
+			Debug.Log("Bum2");
             CameraTurn.playerCanRotate = false;
+			//targetRotation.eulerAngles -= new Vector3(0f, 90f, 0f);
             // targetRotation ...
         }
     }
