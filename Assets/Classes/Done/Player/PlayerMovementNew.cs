@@ -18,10 +18,12 @@ public class PlayerMovementNew : MonoBehaviour
     public float turnSmoothing = 2f;
     public float snapSmoothing = 8f;
     public float playerRotation = 0f;
+	public float Jumphight = 50f;
 
     public static float boostAmount;
     public static float boostTimeSeconds;
     public static float boostTimeLeft = 0f;
+
 
     private static Vector3 spawnPosition;
     public static Quaternion targetRotation;
@@ -60,13 +62,19 @@ public class PlayerMovementNew : MonoBehaviour
     }
 
     void Update()
-    {
+	{
+		
         if (Input.GetButtonDown(Controls.resetPlayer))
             PlayerDie();
         if (Input.GetButtonDown(Controls.camLeft))
             RotatePlayer("left");
         if (Input.GetButtonDown(Controls.camRight))
            RotatePlayer("right");
+
+		if (Input.GetKeyDown (KeyCode.Space)) 
+		{
+			GetComponent<Rigidbody>().AddForce(transform.up * Jumphight);
+		}
     }
 
     void OnCollisionEnter (Collision other)
@@ -74,6 +82,7 @@ public class PlayerMovementNew : MonoBehaviour
         if (other.gameObject.tag == Tags.enemy)
         {
             PlayerDie();
+
         }
     }
 
@@ -112,7 +121,7 @@ public class PlayerMovementNew : MonoBehaviour
         }
     }
 
-    private void AlignPlayer()
+  	 private void AlignPlayer()
     {
         float roundX = Mathf.RoundToInt(GetComponent<Rigidbody>().position.x),
                     roundZ = Mathf.RoundToInt(GetComponent<Rigidbody>().position.z);
@@ -120,8 +129,11 @@ public class PlayerMovementNew : MonoBehaviour
         float lerpedX = Mathf.Lerp(GetComponent<Rigidbody>().position.x, roundX, Time.deltaTime * snapSmoothing),
                 lerpedZ = Mathf.Lerp(GetComponent<Rigidbody>().position.z, roundZ, Time.deltaTime * snapSmoothing);
 
-        Vector3 newRoundedPos = new Vector3(lerpedX, 0.5f, lerpedZ);
-        GetComponent<Rigidbody>().MovePosition(newRoundedPos);
+		float NewY = Mathf.Round(transform.position.y)+ 0.5f;
+
+       Vector3 newRoundedPos = new Vector3(lerpedX, NewY , lerpedZ);
+
+       GetComponent<Rigidbody>().MovePosition(newRoundedPos);
     }
 
     private void PlayerDie()
