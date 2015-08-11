@@ -58,24 +58,24 @@ public class CameraTurn : MonoBehaviour {
         {
             if (camLocation == 0)
             {
-                playForward("CameraLeft1");
+                //playForward("CameraLeft1");
                 //player.transform.Rotate(0, 90, 0);
             }
             else if (camLocation == 1)
             {
-                playForward("CameraLeft2");
+                //playForward("CameraLeft2");
                 //player.transform.Rotate(0, 90, 0);
             }
 
             else if (camLocation == 2)
             {
-                playForward("CameraLeft3");
+                //playForward("CameraLeft3");
                 //player.transform.Rotate(0, 90, 0);
             }
 
             else if (camLocation == 3)
             {
-                playForward("CameraLeft4");
+                //playForward("CameraLeft4");
                 //player.transform.Rotate(0, 90, 0);
             }
         }
@@ -87,22 +87,22 @@ public class CameraTurn : MonoBehaviour {
         {
             if (camLocation == 1)
             {
-                playReverse("CameraLeft1");
+                //playReverse("CameraLeft1");
                 //player.transform.Rotate(0, -90, 0);
             }
             else if (camLocation == 2)
             {
-                playReverse("CameraLeft2");
+                //playReverse("CameraLeft2");
                 //player.transform.Rotate(0, -90, 0);
             }
             else if (camLocation == 3)
             {
-                playReverse("CameraLeft3");
+                //playReverse("CameraLeft3");
                 //player.transform.Rotate(0, -90, 0);
             }
             else if (camLocation == 0)
             {
-                playReverse("CameraLeft4");
+                //playReverse("CameraLeft4");
                 //player.transform.Rotate(0, -90, 0);
             }
         }

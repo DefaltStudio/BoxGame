@@ -40,6 +40,8 @@ public class PlayerMovementNew : MonoBehaviour
                                                 RigidbodyConstraints.FreezeRotationZ; // Is this even needed?
         CameraTurn.player = gameObject; // Try disabling this
         initMoveSpeed = playerMoveSpeed;   // this should not be needed
+
+		SmoothFollowPlayer.target = gameObject.transform;
     }
 
     void Start()
