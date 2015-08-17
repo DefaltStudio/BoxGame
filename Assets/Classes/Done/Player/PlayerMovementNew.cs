@@ -111,13 +111,7 @@ public class PlayerMovementNew : MonoBehaviour
         }
         if (direction == "right")
         {
-<<<<<<< HEAD
-			Debug.Log("right");
             targetRotation.eulerAngles -= new Vector3(0f, 90f, 0f);
-=======
-            CameraTurn.playerCanRotate = false;
-            // targetRotation ...
->>>>>>> master
         }
     }
 
