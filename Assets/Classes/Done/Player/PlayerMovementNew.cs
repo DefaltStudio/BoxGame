@@ -24,7 +24,6 @@ public class PlayerMovementNew : MonoBehaviour
     public static float boostTimeSeconds;
     public static float boostTimeLeft = 0f;
 
-
     private static Vector3 spawnPosition;
     public static Quaternion targetRotation;
     public static float initMoveSpeed;
@@ -71,7 +70,7 @@ public class PlayerMovementNew : MonoBehaviour
         if (Input.GetButtonDown(Controls.camRight))
            RotatePlayer("right");
 
-		if (Input.GetKeyDown (KeyCode.Space)) 
+		if (Input.GetButtonDown(Controls.jump)) 
 		{
 			GetComponent<Rigidbody>().AddForce(transform.up * Jumphight);
 		}
@@ -105,19 +104,15 @@ public class PlayerMovementNew : MonoBehaviour
         Debug.Log("Target Rotation, RotatePlayer" + targetRotation);
         direction.Trim().ToLower();
 
-        if (direction == "left" && CameraTurn.playerCanRotate)
+        if (direction == "left")
         {
-			Debug.Log("Bum1");
-            CameraTurn.playerCanRotate = false;
-			//targetRotation.eulerAngles += new Vector3(0f, 90f, 0f);
-            // targetRotation ...
+			Debug.Log("left");
+            targetRotation.eulerAngles += new Vector3(0f, 90f, 0f);
         }
-        if (direction == "right" && CameraTurn.playerCanRotate)
+        if (direction == "right")
         {
-			Debug.Log("Bum2");
-            CameraTurn.playerCanRotate = false;
-			//targetRotation.eulerAngles -= new Vector3(0f, 90f, 0f);
-            // targetRotation ...
+			Debug.Log("right");
+            targetRotation.eulerAngles -= new Vector3(0f, 90f, 0f);
         }
     }
 
@@ -129,9 +124,9 @@ public class PlayerMovementNew : MonoBehaviour
         float lerpedX = Mathf.Lerp(GetComponent<Rigidbody>().position.x, roundX, Time.deltaTime * snapSmoothing),
                 lerpedZ = Mathf.Lerp(GetComponent<Rigidbody>().position.z, roundZ, Time.deltaTime * snapSmoothing);
 
-		float NewY = Mathf.Round(transform.position.y)+ 0.5f;
+		float NewY = Mathf.Round(transform.position.y) + 0.5f;
 
-       Vector3 newRoundedPos = new Vector3(lerpedX, NewY , lerpedZ);
+       Vector3 newRoundedPos = new Vector3(lerpedX, transform.position.y , lerpedZ);
 
        GetComponent<Rigidbody>().MovePosition(newRoundedPos);
     }

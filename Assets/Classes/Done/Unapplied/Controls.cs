@@ -9,4 +9,5 @@ class Controls
     public const string camLeft = "TurnLeft";
     public const string camRight = "TurnRight";
     public const string startGame = "StartGame";
+    public const string jump = "Jump";
 }
