@@ -301,7 +301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: 20
-  damping: .0500000007
+  damping: .5
   rotationDamping: 8
 --- !u!124 &12444164
 Behaviour:
