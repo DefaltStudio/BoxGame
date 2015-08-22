@@ -1858,6 +1858,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 10850864, guid: 63a526cb648ff494d8988fd91fe3f38a, type: 2}
+      propertyPath: m_Intensity
+      value: .899999976
+      objectReference: {fileID: 0}
+    - target: {fileID: 10850864, guid: 63a526cb648ff494d8988fd91fe3f38a, type: 2}
+      propertyPath: m_DrawHalo
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 10850864, guid: 63a526cb648ff494d8988fd91fe3f38a, type: 2}
+      propertyPath: m_Shadows.m_Resolution
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 10850864, guid: 63a526cb648ff494d8988fd91fe3f38a, type: 2}
+      propertyPath: m_Shadows.m_Type
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 63a526cb648ff494d8988fd91fe3f38a, type: 2}
   m_IsPrefabParent: 0
