@@ -35,7 +35,9 @@ public class PlayerMovementNew : MonoBehaviour
     {
         Cursor.visible = false; // Move this to another script.
 
-        EnemyShooting.FPC = transform;
+        EnemyShooting.playerSpawn = transform;
+        ArrowEnemy.playerTransform = transform;
+
         spawnPosition = transform.position;
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | 
                                                 RigidbodyConstraints.FreezeRotationY | 

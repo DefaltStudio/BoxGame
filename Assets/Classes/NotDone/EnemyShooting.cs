@@ -3,44 +3,42 @@ using System.Collections;
 
 public class EnemyShooting : MonoBehaviour 
 {
-	public static Transform FPC;
-	public Transform Spawn;
-	public Transform Bullet;
-	public float RotationSpeed;
-	public float ActiveRange;
+	public static Transform playerSpawn;
+	public Transform bulletSpawn;
+	public GameObject bullet;
+	public float rotationSpeed;
+	public float activeRange;
 
-	public float Temprotation = 0.0f;
 	public float fireRate = 0.5f;
 
-	public Transform Ball;
+	public Transform ball;
 
     private bool animHasPlayed = false;
-	public bool HasPlayed = false;
+	public bool hasPlayed = false;
 
 	private float nextFire = 0.0f;
 
-	private Vector3 direction;
+	private Vector3 targetDirection;
 	private Quaternion lookRotation;
 
 
-	void Update ()
+	void LateUpdate()
 	{	
-
 		Animation EnemyShotAnimationComp = GetComponentInParent<Animation> ();
 
 		//Find hvor langt FPC (First person Controller) er væk
-		float DistanceToTarget = Vector3.Distance(FPC.position, transform.position);
+		float distanceToPlayer = Vector3.Distance(playerSpawn.position, transform.position);
 
 		//Find vejen den skal vende
-		direction = (FPC.position - transform.position).normalized;
+		targetDirection = (playerSpawn.position - transform.position).normalized;
 
 		//Find hvilken rotation vi skal have.
-		lookRotation = Quaternion.LookRotation (direction);
+		lookRotation = Quaternion.LookRotation (targetDirection);
 
 		//kig på target hvis den er inden for range
 
         GetComponentInParent<Animation>().wrapMode = WrapMode.Once;
-		if (DistanceToTarget < ActiveRange)
+		if (distanceToPlayer < activeRange)
         {
             if (!animHasPlayed)
             {
@@ -53,7 +51,7 @@ public class EnemyShooting : MonoBehaviour
                 Shoot();
 		}
 	    
-        if (DistanceToTarget > ActiveRange)
+        if (distanceToPlayer > activeRange)
         {
             if (animHasPlayed)
             {
@@ -65,37 +63,31 @@ public class EnemyShooting : MonoBehaviour
             animHasPlayed = false;
         }
 
-		if (HasPlayed == false) 
+		if (hasPlayed == false) 
 		{
-			Instantiate (Ball, new Vector3(transform.position.x, transform.position.y, transform.position.z - ActiveRange), Quaternion.identity);
-			Instantiate (Ball, new Vector3(transform.position.x, transform.position.y, transform.position.z + ActiveRange), Quaternion.identity);
-			Instantiate (Ball, new Vector3(transform.position.x + ActiveRange, transform.position.y, transform.position.z), Quaternion.identity);
-			Instantiate (Ball, new Vector3(transform.position.x - ActiveRange, transform.position.y, transform.position.z), Quaternion.identity);
-			HasPlayed = true;
+			Instantiate (ball, new Vector3(transform.position.x, transform.position.y, transform.position.z - activeRange), Quaternion.identity);
+			Instantiate (ball, new Vector3(transform.position.x, transform.position.y, transform.position.z + activeRange), Quaternion.identity);
+			Instantiate (ball, new Vector3(transform.position.x + activeRange, transform.position.y, transform.position.z), Quaternion.identity);
+			Instantiate (ball, new Vector3(transform.position.x - activeRange, transform.position.y, transform.position.z), Quaternion.identity);
+			hasPlayed = true;
 		}
-
 	}
 
 
-	void Shoot ()
+	void Shoot()
 	{
-		transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * RotationSpeed);
+		transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
 
 		if (Time.time > nextFire)
 		{
 			nextFire = Time.time + fireRate;
-			Instantiate (Bullet, Spawn.position, Spawn.rotation);
-
+			Instantiate (bullet, bulletSpawn.position, bulletSpawn.rotation);
 		}
-	
 	}
 
-	
-	void OnDrawGizmosSelected ()
+	void OnDrawGizmosSelected()
 	{
 		Gizmos.color = Color.red;
-		
-		Gizmos.DrawWireSphere (transform.position, ActiveRange); 
-		
+		Gizmos.DrawWireSphere (transform.position, activeRange); 
 	}
 }

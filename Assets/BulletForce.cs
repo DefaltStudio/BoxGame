@@ -10,14 +10,19 @@ public class BulletForce : MonoBehaviour {
         //explosion = GameObject.FindWithTag("Explosion1");
     }
 
-	void Start() 
+	IEnumerator Start() 
 	{
 		GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * 10000);
+        yield return new WaitForSeconds(5);
+        Destroy(gameObject);
 	}
 	
 	void OnCollisionEnter(Collision hit) 
     {
-        Instantiate(explosion, transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        if (hit.gameObject.tag != Tags.enemy)
+        {
+            Instantiate(explosion, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
 	}
 }
