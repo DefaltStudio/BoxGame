@@ -21,7 +21,8 @@ public class BulletForce : MonoBehaviour {
     {
         if (hit.gameObject.tag != Tags.enemy)
         {
-            Instantiate(explosion, transform.position, Quaternion.identity);
+            if (explosion != null)
+                Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
 	}

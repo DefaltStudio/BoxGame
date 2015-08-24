@@ -45,6 +45,7 @@ public class ArrowEnemy : MonoBehaviour {
 
         if (Time.time > nextFire)
         {
+            
             nextFire = Time.time + fireRate;
             Instantiate(Bullet, bulletSpawn.position, transform.rotation);
         }
