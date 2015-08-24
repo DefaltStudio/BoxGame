@@ -25,6 +25,7 @@ public class PlayerMovementNew : MonoBehaviour
     public static float boostTimeLeft = 0f;
 
     private static Vector3 spawnPosition;
+    private static Quaternion spawnRotation;
     public static Quaternion targetRotation;
     public static float initMoveSpeed;
     #endregion
@@ -47,6 +48,7 @@ public class PlayerMovementNew : MonoBehaviour
 
     void Start()
     {
+        spawnRotation = GetComponent<Rigidbody>().rotation;
 		targetRotation = GetComponent<Rigidbody>().rotation;
         //Debug.Log("Target Rotation, Start: " + targetRotation);
     }
@@ -132,9 +134,10 @@ public class PlayerMovementNew : MonoBehaviour
 
     private void PlayerDie()
     {
-        Debug.Log(spawnPosition);
         Instantiate(prefabs.explosion, transform.position, Quaternion.identity);
         GetComponent<Rigidbody>().velocity = new Vector3(0f, -0.1f, 0f);
+        targetRotation = spawnRotation;
+        GetComponent<Rigidbody>().rotation = spawnRotation;
         transform.position = spawnPosition;
         RespawnPickups();
         playerMoveSpeed = initMoveSpeed;
