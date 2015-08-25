@@ -89,6 +89,19 @@ public class PlayerMovementNew : MonoBehaviour
         }
     }
 
+    private bool isOnGround()
+    {
+        RaycastHit rayHit;
+        Ray downRay = new Ray(transform.position, -Vector3.up);
+        if (Physics.Raycast(downRay, out rayHit))
+        {
+            if (rayHit.distance == 0)
+                return true;
+        }
+
+        return false;
+    }
+
     private void MovementManagement (float horizontal, float vertical)
     {
         if (horizontal != 0f || vertical != 0f)
@@ -99,7 +112,8 @@ public class PlayerMovementNew : MonoBehaviour
         }
         if (horizontal == 0f && vertical == 0f)
         {
-            AlignPlayer();
+            if (!isOnGround())
+                AlignPlayer();
         }
     }
 
