@@ -41,7 +41,6 @@ public class DeathsCounter : MonoBehaviour {
 
         deathCountText.CrossFadeColor(new Color(255f, 255f, 255f, 255f), fadeTime, true, true);
 
-        Debug.Log("Deaths: " + deathCount + "\nColor:" + deathCountText.color);
         deathCountText.text = "Deaths: " + deathCount;
 
         StartCoroutine(FadeOut());
