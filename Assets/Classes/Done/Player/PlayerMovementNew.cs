@@ -28,6 +28,7 @@ public class PlayerMovementNew : MonoBehaviour
     private static Quaternion spawnRotation;
     public static Quaternion targetRotation;
     public static float initMoveSpeed;
+
     #endregion
 
 
@@ -66,7 +67,6 @@ public class PlayerMovementNew : MonoBehaviour
 
     void Update()
 	{
-		
         if (Input.GetButtonDown(Controls.resetPlayer))
             PlayerDie();
         if (Input.GetButtonDown(Controls.camLeft))
@@ -85,7 +85,6 @@ public class PlayerMovementNew : MonoBehaviour
         if (other.gameObject.tag == Tags.enemy)
         {
             PlayerDie();
-
         }
     }
 
@@ -134,7 +133,7 @@ public class PlayerMovementNew : MonoBehaviour
     }
 
   	 private void AlignPlayer()
-    {
+     {
         float roundX = Mathf.RoundToInt(GetComponent<Rigidbody>().position.x),
                     roundZ = Mathf.RoundToInt(GetComponent<Rigidbody>().position.z);
 
@@ -146,7 +145,7 @@ public class PlayerMovementNew : MonoBehaviour
        Vector3 newRoundedPos = new Vector3(lerpedX, transform.position.y , lerpedZ);
 
        GetComponent<Rigidbody>().MovePosition(newRoundedPos);
-    }
+     }
 
     private void PlayerDie()
     {
@@ -157,6 +156,8 @@ public class PlayerMovementNew : MonoBehaviour
         transform.position = spawnPosition;
         RespawnPickups();
         playerMoveSpeed = initMoveSpeed;
+
+        DeathsCounter.isDead = true;
     }
 
     private void RespawnPickups()
