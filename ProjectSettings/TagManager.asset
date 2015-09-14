@@ -12,6 +12,12 @@ TagManager:
   - PlusBoost
   - Explosion1
   - BeautifulGirl
+  - Menu1.0
+  - Menu2.0
+  - Menu3.0
+  - Menu4.0
+  - Menu5.0
+  - Menu6.0
   layers:
   - Default
   - TransparentFX
