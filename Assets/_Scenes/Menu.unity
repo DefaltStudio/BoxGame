@@ -298,7 +298,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &346245940
 Transform:
   m_ObjectHideFlags: 0
@@ -460,6 +460,60 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 356649647}
+--- !u!1001 &365461608
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 431930, guid: e7ec59d864376aa4cb0df25b8b1cf3c7, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: .592054427
+      objectReference: {fileID: 0}
+    - target: {fileID: 431930, guid: e7ec59d864376aa4cb0df25b8b1cf3c7, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 10.167263
+      objectReference: {fileID: 0}
+    - target: {fileID: 431930, guid: e7ec59d864376aa4cb0df25b8b1cf3c7, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -7.49775839
+      objectReference: {fileID: 0}
+    - target: {fileID: 431930, guid: e7ec59d864376aa4cb0df25b8b1cf3c7, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 431930, guid: e7ec59d864376aa4cb0df25b8b1cf3c7, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 431930, guid: e7ec59d864376aa4cb0df25b8b1cf3c7, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 431930, guid: e7ec59d864376aa4cb0df25b8b1cf3c7, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 431930, guid: e7ec59d864376aa4cb0df25b8b1cf3c7, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11431930, guid: e7ec59d864376aa4cb0df25b8b1cf3c7, type: 2}
+      propertyPath: animMusic1
+      value: 
+      objectReference: {fileID: 8300000, guid: e7e3d6a074974e74ba955594521d1f91, type: 3}
+    - target: {fileID: 11431930, guid: e7ec59d864376aa4cb0df25b8b1cf3c7, type: 2}
+      propertyPath: animMusic2_loop
+      value: 
+      objectReference: {fileID: 8300000, guid: fda48387e6e568e4191a80877f658c03, type: 3}
+    - target: {fileID: 11431930, guid: e7ec59d864376aa4cb0df25b8b1cf3c7, type: 2}
+      propertyPath: animMusic3_continue
+      value: 
+      objectReference: {fileID: 8300000, guid: 89e61526a211b7940acc426b83619fbe, type: 3}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e7ec59d864376aa4cb0df25b8b1cf3c7, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &478127276
 GameObject:
   m_ObjectHideFlags: 0
@@ -1255,7 +1309,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 0
+        m_CallState: 1
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1194057845

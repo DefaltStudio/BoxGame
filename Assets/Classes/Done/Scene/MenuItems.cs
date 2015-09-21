@@ -5,7 +5,7 @@ public class MenuItems : MonoBehaviour {
 
 	public void PlayCampaign()
     {
-        Application.LoadLevel("awo_testScene");
+        Application.LoadLevel(1);
     }
 
     public void Quit()
