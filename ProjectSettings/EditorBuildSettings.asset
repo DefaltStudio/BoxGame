@@ -8,4 +8,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Menu.unity
   - enabled: 1
-    path: Assets/_Scenes/awo_testScene.unity
+    path: Assets/_Scenes/awo_test_reflection.unity
