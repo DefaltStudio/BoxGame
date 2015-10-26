@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: d342a97405afc32449441000948c5f16
-timeCreated: 1442009071
+guid: 247f7a4db8570e14ba882b833d1a9920
+timeCreated: 1445852537
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
@@ -13,7 +13,6 @@ ModelImporter:
     100010: Cylinder004
     100012: Cylinder005
     100014: Object001
-    100016: Plane001
     400000: Box001
     400002: //RootNode
     400004: Cylinder001
@@ -22,7 +21,6 @@ ModelImporter:
     400010: Cylinder004
     400012: Cylinder005
     400014: Object001
-    400016: Plane001
     2300000: Box001
     2300002: Cylinder001
     2300004: Cylinder002
@@ -30,7 +28,6 @@ ModelImporter:
     2300008: Cylinder004
     2300010: Cylinder005
     2300012: Object001
-    2300014: Plane001
     3300000: Box001
     3300002: Cylinder001
     3300004: Cylinder002
@@ -38,23 +35,13 @@ ModelImporter:
     3300008: Cylinder004
     3300010: Cylinder005
     3300012: Object001
-    3300014: Plane001
-    4300000: Plane001
-    4300002: Cylinder001
-    4300004: Cylinder002
-    4300006: Cylinder003
-    4300008: Box001
-    4300010: Cylinder004
-    4300012: Object001
-    4300014: Cylinder005
-    6400000: Box001
-    6400002: Cylinder001
-    6400004: Cylinder002
-    6400006: Cylinder003
-    6400008: Cylinder004
-    6400010: Cylinder005
-    6400012: Object001
-    6400014: Plane001
+    4300000: Cylinder001
+    4300002: Cylinder002
+    4300004: Cylinder003
+    4300006: Box001
+    4300008: Cylinder004
+    4300010: Object001
+    4300012: Cylinder005
     7400000: Take 001
     9500000: //RootNode
   materials:
@@ -82,7 +69,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
