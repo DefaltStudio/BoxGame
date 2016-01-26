@@ -18,7 +18,7 @@ public class PlayerMovementNew : MonoBehaviour
     public float turnSmoothing = 2f;
     public float snapSmoothing = 8f;
     public float playerRotation = 0f;
-	public float Jumphight = 50f;
+    public float Jumphight = 50f;
 
     public static float boostAmount;
     public static float boostTimeSeconds;
@@ -40,19 +40,19 @@ public class PlayerMovementNew : MonoBehaviour
         ArrowEnemy.playerTransform = transform;
 
         spawnPosition = transform.position;
-        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | 
-                                                RigidbodyConstraints.FreezeRotationY | 
+        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX |
+                                                RigidbodyConstraints.FreezeRotationY |
                                                 RigidbodyConstraints.FreezeRotationZ; // Is this even needed?
         CameraTurn.player = gameObject; // Try disabling this
         initMoveSpeed = playerMoveSpeed;   // this should not be needed
 
-		SmoothFollowPlayer.target = gameObject.transform;
+        SmoothFollowPlayer.target = gameObject.transform;
     }
 
     void Start()
     {
         spawnRotation = GetComponent<Rigidbody>().rotation;
-		targetRotation = GetComponent<Rigidbody>().rotation;
+        targetRotation = GetComponent<Rigidbody>().rotation;
         //Debug.Log("Target Rotation, Start: " + targetRotation);
     }
 
@@ -61,26 +61,29 @@ public class PlayerMovementNew : MonoBehaviour
         float h = Input.GetAxis(Controls.horizontal); float v = Input.GetAxis(Controls.vertical);
         MovementManagement(h, v);
 
-		GetComponent<Rigidbody>().MoveRotation(Quaternion.Lerp(
-			GetComponent<Rigidbody>().rotation, targetRotation, Time.deltaTime * turnSmoothing));
+        GetComponent<Rigidbody>().MoveRotation(Quaternion.Lerp(
+            GetComponent<Rigidbody>().rotation, targetRotation, Time.deltaTime * turnSmoothing));
+
+        //GetComponentInChildren<Rigidbody>().MoveRotation(Quaternion.Lerp(
+        //    GetComponentInChildren<Rigidbody>().rotation, targetRotation, Time.deltaTime * turnSmoothing));
     }
 
     void Update()
-	{
+    {
         if (Input.GetButtonDown(Controls.resetPlayer))
             PlayerDie();
         if (Input.GetButtonDown(Controls.camLeft))
             RotatePlayer("left");
         if (Input.GetButtonDown(Controls.camRight))
-           RotatePlayer("right");
+            RotatePlayer("right");
 
-		if (Input.GetButtonDown(Controls.jump)) 
-		{
-			GetComponent<Rigidbody>().AddForce(transform.up * Jumphight);
-		}
+        if (Input.GetButtonDown(Controls.jump))
+        {
+            GetComponent<Rigidbody>().AddForce(transform.up * Jumphight);
+        }
     }
 
-    void OnCollisionEnter (Collision other)
+    void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.tag == Tags.enemy)
         {
@@ -101,7 +104,7 @@ public class PlayerMovementNew : MonoBehaviour
         return false;
     }
 
-    private void MovementManagement (float horizontal, float vertical)
+    private void MovementManagement(float horizontal, float vertical)
     {
         if (horizontal != 0f || vertical != 0f)
         {
@@ -116,14 +119,14 @@ public class PlayerMovementNew : MonoBehaviour
         }
     }
 
-    private void RotatePlayer (string direction)
+    private void RotatePlayer(string direction)
     {
         Debug.Log("Target Rotation, RotatePlayer" + targetRotation);
         direction.Trim().ToLower();
 
         if (direction == "left")
         {
-			Debug.Log("left");
+            Debug.Log("left");
             targetRotation.eulerAngles += new Vector3(0f, 90f, 0f);
         }
         if (direction == "right")
@@ -132,20 +135,20 @@ public class PlayerMovementNew : MonoBehaviour
         }
     }
 
-  	 private void AlignPlayer()
-     {
+    private void AlignPlayer()
+    {
         float roundX = Mathf.RoundToInt(GetComponent<Rigidbody>().position.x),
                     roundZ = Mathf.RoundToInt(GetComponent<Rigidbody>().position.z);
 
         float lerpedX = Mathf.Lerp(GetComponent<Rigidbody>().position.x, roundX, Time.deltaTime * snapSmoothing),
                 lerpedZ = Mathf.Lerp(GetComponent<Rigidbody>().position.z, roundZ, Time.deltaTime * snapSmoothing);
 
-		float NewY = Mathf.Round(transform.position.y) + 0.5f;
+        float NewY = Mathf.Round(transform.position.y) + 0.5f;
 
-       Vector3 newRoundedPos = new Vector3(lerpedX, transform.position.y , lerpedZ);
+        Vector3 newRoundedPos = new Vector3(lerpedX, transform.position.y, lerpedZ);
 
-       GetComponent<Rigidbody>().MovePosition(newRoundedPos);
-     }
+        GetComponent<Rigidbody>().MovePosition(newRoundedPos);
+    }
 
     private void PlayerDie()
     {
