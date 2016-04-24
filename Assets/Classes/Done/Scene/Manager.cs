@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 
 [RequireComponent(typeof(GameObject))]
-public class Manager : MonoBehaviour {
+public class Manager : MonoBehaviour
+{
 
     public static int currentLevel = 0;
     private static int levelCount = 0;
@@ -22,10 +23,10 @@ public class Manager : MonoBehaviour {
     void Awake()
     {
         levelCount = Application.levelCount - 1;
-        currentLevel = Application.loadedLevel;   
+        currentLevel = Application.loadedLevel;
     }
 
-    private static void LoadLevel(int level)
+    public static void LoadLevel(int level)
     {
         if (goldCubes.Count == 0)
         {
@@ -60,8 +61,8 @@ public class Manager : MonoBehaviour {
         bool tmp = currentLevel < levelCount;
         Debug.Log("Level Up: " + tmp);
         if (currentLevel < levelCount)
-                LoadLevel(currentLevel + 1);
-        
+            LoadLevel(currentLevel + 1);
+
     }
 
     public static void LevelDown()

@@ -2,7 +2,8 @@
 using System.Collections;
 
 [RequireComponent(typeof(AudioSource))]
-public class MusicPlayer : MonoBehaviour {
+public class MusicPlayer : MonoBehaviour
+{
 
     public AudioClip spilmusik;
     public AudioClip spilmusikWaiting;
@@ -13,11 +14,13 @@ public class MusicPlayer : MonoBehaviour {
 
     private float currentMusicTime;
 
-    void Start() {
+    void Start()
+    {
         DontDestroyOnLoad(gameObject);
     }
 
-    void Update() {
+    void Update()
+    {
         currentMusicTime = GetComponent<AudioSource>().time;
 
         if (!GetComponent<AudioSource>().isPlaying)
@@ -31,15 +34,19 @@ public class MusicPlayer : MonoBehaviour {
     void OnLevelWasLoaded(int lvl)
     {
         AudioSource audio = GetComponent<AudioSource>();
-        if (lvl == 1)
+        if (lvl == 0)
         {
             audio.clip = animMusic1; currentMusicTime = 0.0f; audio.Play();
             audio.loop = false;
         }
-        else if (lvl == 6)
-        { audio.clip = spilmusikWaiting; currentMusicTime = 0.0f; audio.Play(); }
-        else if (lvl == 7)
-        { audio.clip = spilmusik; currentMusicTime = 0.0f; audio.Play(); }
-        GetComponent<AudioSource>().time = currentMusicTime;
+        else if (lvl == 1)
+        {
+            audio.clip = animMusic1; currentMusicTime = 0.0f; audio.Play();
+        }
+        //else if (lvl == 6)
+        //{ audio.clip = spilmusikWaiting; currentMusicTime = 0.0f; audio.Play(); }
+        //else if (lvl == 7)
+        //{ audio.clip = spilmusik; currentMusicTime = 0.0f; audio.Play(); }
+        //GetComponent<AudioSource>().time = currentMusicTime;
     }
 }
